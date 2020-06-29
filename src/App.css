@@ -3,7 +3,7 @@ html,body{
 }
 
 a{
-  color:lightblue;
+  color:rgb(105, 188, 216);
 }
 
 .first{
@@ -19,22 +19,12 @@ a{
   z-index:5;
 }
 
-.navbar{
-  height:60vw;
-  width:10vw;
-  background-color:#C490D1;
-  display: flex;
-  flex-direction: column;
-  opacity:0;
-}
-
 #main{
   height:60vw;
   width:80vw;
-  min-width: 700px;
-  background-color:white;
   position: relative;
   overflow: hidden;
+  z-index:1;
 }
 
 #main img{
@@ -76,7 +66,7 @@ div h1{
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 5px;
-  right: 5%;
+  left: 5%;
   position: absolute;
   color:#303030;
   background:rgba(255, 255, 255, 0.6);
@@ -84,7 +74,7 @@ div h1{
 
 .contact{
   top: 80px;
-  right: 5%;
+  left: 5%;
   position: absolute;
 }
 
@@ -105,13 +95,13 @@ div h3{
 }
 
 .contactmethod{
-    width: 15vw;
+    width: 250px;
     top:75%;
     left: 50%;
     transform: translateX(-50%);
     background-color: black;
     color: #fff;
-    font-size:1.2vw;
+    font-size:20px;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
@@ -126,21 +116,52 @@ div h3{
   padding-bottom:5px;
 }
 
+#menubutton{
+  position: absolute;
+  top: 30px;
+  right:3%;
+  z-index:5;
+  color: #606060;
+  font-size: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  opacity:0;
+}
+
+#menubutton:hover{
+  background-color: #c1b4e0;
+}
+
+#intro{
+  top: 40%;
+  left: 40%;
+  width:50%;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  position:absolute;
+  font-size:2vw;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 
 #mainbottom{
   height:60vw;
   width:80vw;
-  min-width: 700px;
   border-radius: 15px;
   background-color:white;
   position: relative;
   overflow: hidden;
   z-index:5;
   opacity:0.5;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 #main1 {
-  left: 10vw;
   height: 60vw;
   width: 80vw;
   min-width: 700px;
@@ -155,7 +176,6 @@ div h3{
 }
 
 #main2 {
-  left: 10vw;
   height: 60vw;
   width: 80vw;
   min-width: 700px;
@@ -170,7 +190,6 @@ div h3{
 }
 
 #main3 {
-  left: 10vw;
   height: 60vw;
   width: 80vw;
   min-width: 700px;
@@ -185,7 +204,6 @@ div h3{
 }
 
 #main4 {
-  left: 10vw;
   height: 60vw;
   width: 80vw;
   min-width: 700px;
@@ -200,7 +218,6 @@ div h3{
 }
 
 .mainlabel {
-  font-family: Futura, 'Noto Sans JP', sans-serif;
   font-size:2vw;
   color:#303030;
   top: 1%;
@@ -212,15 +229,44 @@ div h3{
   color:white;
 
 }
-
-.maintext{
-  font-family: Futura, 'Noto Sans JP', sans-serif;
+.maincontent{
+  top:10vw;
+  width: 60vw;
+  margin:auto;
+  position:relative;
   font-size:1vw;
-  top: 30%;
-  left: 30%;
-  position: absolute;
   opacity:0;
-  transition:opacity 3s ease-in;
+  transition:opacity 2s ease-in;
+  display: flex;
+  flex-direction: row;
+}
+
+.skills{
+  width:50%;
+}
+
+.skills ul{
+  list-style: none;
+}
+
+.skills ul li{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.notstars{
+  color:white;
+  float: right;
+}
+
+.stars{
+  color:black;
+  float: right;
+}
+
+
+.skills ul li:hover .stars{
+  letter-spacing: 2px;
 }
 
 .hint{
@@ -238,16 +284,26 @@ div h3{
   cursor:pointer;
 }
 
+
+.navbar{
+  height:60vw;
+  width:10vw;
+  display: flex;
+  flex-direction: column;
+  z-index:0;
+}
+
 .sidebar{
   width:10vw;
+  border-radius:15px;
   background-color:white;
-  z-index:10;
-  opacity:0.5;
+  z-index:0;
   position:fixed;
   right:0;
   display: flex;
   flex-direction: column;
   font-family: Futura, 'Noto Sans JP', sans-serif;
+  color:#909090;
 }
 
 .menu{
@@ -269,17 +325,56 @@ div h3{
   cursor:pointer;
 }
 
-/* 
-
-.square {
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  text-align: center;
-  width: 34px;
+#closebutton{
+  font-size:1.5vw;
+  text-align: right;
+  margin-top:9px;
+  margin-right:5px;
+  display:none
 }
 
-} */
+#closebutton:hover{
+  background:#c1b4e0;
+  cursor:pointer;
+}
+
+
+@media (max-width:1000px){
+  .navbar{
+    display:none;
+  }
+
+  #menubutton{
+    opacity:1;
+  }
+
+  #main{
+    width:100vw;
+    height:75vw;
+  }
+
+  #intro{
+    width:30%;
+  }
+
+  #mainbottom{
+    width:1000px;
+    height:75vw;
+  }
+
+  .sidebar{
+    width: 20%
+  }
+
+  .menu{
+    font-size:4vw;
+  }
+  .item{
+    font-size:3vw;
+  }
+
+  #closebutton{
+    display:block;
+    font-size:3vw;
+  }
+}
