@@ -41,8 +41,8 @@ class Main extends React.Component{
       <div id="leftarrow" style={this.props.view ?this.state.arrow:{zIndex:-2}} onMouseOver={()=>this.mouseover()} onMouseLeave={()=>this.mouseleave()} onClick={()=>this.click(this.state.img)}>&#8678;</div>
       <div id="rightarrow" style={this.props.view ?this.state.arrow:{zIndex:-2}} onMouseOver={()=>this.mouseover()} onMouseLeave={()=>this.mouseleave()} onClick={()=>this.click(this.state.img)}>&#8680;</div>
       <div id="menubutton" onClick={()=>this.props.onClick()}>&#9776;</div>
-      <div id="intro">I am a developer and datascientist. I have been passionate about exploring new things. Currently, I am living in <a href="https://www.google.com/search?q=vienna+virginia" target="_blank">Vienna, Virginia</a>.
-      and I am pursuing my Master degree in Business Analytics at <a href="https://www.gwu.edu/" target="_blank">George Washington University</a>. </div>
+      <div id="intro">I am a developer and data scientist. I have been passionate about exploring new things. Currently, I am living in <a href="https://www.google.com/search?q=vienna+virginia" target="_blank">Vienna, Virginia</a>.
+     </div>
       <img src={image}></img>
       <Contact />
     </div>
@@ -67,7 +67,12 @@ class Main1 extends React.Component{
     return <div id = "main1" onMouseOver={()=>this.props.onMouseOver()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style1}>
       <span className = "mainlabel" >About me</span>
       <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
-      <span className = "maincontent" style={this.props.styleText}>"How are you?"</span>
+      <span className = "maincontent" style={this.props.styleText}>
+        <div className="description">I was born in China and lived my high school years in Beijing. I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology.
+        After graduation, I worked at AIA Group Limited for two years as a financial planner. In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at <a href="https://www.gwu.edu/" target="_blank">George Washington University</a>.</div>
+        <div className="graph"></div>
+        
+      </span>
       </div>
   }
 }
@@ -262,7 +267,7 @@ class MainBottom extends React.Component{
   }
 
   resetStyle =(i)=>{
-    var trans = 'scale(1.25) rotate(36.85deg) translate('+(i*3-3).toString()+'vw,'+(i*4-4).toString()+'vw)';
+    var trans = 'rotate(36.85deg) translate('+(i*3-3).toString()+'vw,'+(i*4-4).toString()+'vw)';
     var style ="style"+i.toString()
     this.setState({[style]: {transform:trans}, styleText:{},current:undefined});
     for(var j=1;j<5;j++){
@@ -303,12 +308,24 @@ class Second extends React.Component{
   }
 }
 
+class Foot extends React.Component{
+  render(){
+    return <div className = "foot">
+      <div className="ending">
+        <hr></hr>
+        <div className="endingtext">© 2020 Simon Tan</div>
+      </div>
+    </div>
+    }
+}
+
 function App() {
   
   return (
     <div>
     <First />
     <Second />
+    <Foot />
     </div>
   )
 } 
