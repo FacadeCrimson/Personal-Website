@@ -43,9 +43,12 @@ class Contact extends React.Component{
   }
 }
 
+
+
 class Container extends React.Component{
   render(){
-    return  <div className="container" id="c1">
+    const color = this.props.color
+    return  <div className="container" id="c1" style={{backgroundColor:color}}>
         <div className="title">{this.props.title}</div>
         <div className="description">{this.props.desc}</div>
         {this.props.img? <div className="graph"><img src={this.props.img} alt="sample"></img></div> : null}
@@ -54,11 +57,11 @@ class Container extends React.Component{
 }
 
 const image3 = require("./about-img3.jpeg");
-const container1 = <Container title="Good for you" desc="I was born in China and lived my high school years in Beijing. I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology." img={image3}/>;
-const container2 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image3}/>;
-const container3 = <Container title="Hello !" />;
+const container1 = <Container title="Good for you" desc="I was born in China and lived my high school years in Beijing. I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology." img={image3} color="#f6eeea"/>;
+const container2 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image3} color="#f6eeea"/>;
+const container3 = <Container title="Hello !" color="#f6eeea"/>;
 const container4 = <Container title="Japanese" desc="I love Japanese culture very much and even passed Japanese JLPT N1 test. I am intrigued by design, traveling, films, writing, art, armchair philosophy, fabulous food, and even better conversations.
-Seeking to be inspired, to envision the unlikely, to work hard for things that are worth it, and to be surrounded by those who bring out the best in me." />;
+Seeking to be inspired, to envision the unlikely, to work hard for things that are worth it, and to be surrounded by those who bring out the best in me." color="#eeeaf6" />;
 
 class Main1 extends React.Component{
   constructor(props) {
@@ -68,15 +71,38 @@ class Main1 extends React.Component{
     };
   }
 
+  add=(e)=>
+  {
+    console.log(e);
+    const el=document.getElementById("m1")
+    this.pos = this.state.position
+    this.left = el.style.left? parseInt(el.style.left, 10):0
+    this.offsetX=e.clientX-this.left
+    el.addEventListener('mousemove',this.move)
+  }
+
+  move=(e)=>
+  {
+    const el=document.getElementById("m1");
+    el.style.left = `${e.pageX-this.offsetX}px`
+  }
+
+  remove=()=>{
+    const el=document.getElementById("m1");
+    el.removeEventListener('mousemove',this.move)
+    this.setState({position:this.pos+this.left})
+  }
+
+  
   handleLClick(){
     const position = this.state.position
-    if(position===0){
+    if(position>=0){
       return;
     }
-    var newpos = 'translateX('+(position+100).toString()+'px)'
+    var newpos = 'translateX('+(position+200).toString()+'px)'
     var target = document.getElementById("m1");
     target.style.transform = newpos;
-    this.setState({position:position+100});
+    this.setState({position:position+200});
   }
 
   handleRClick(){
@@ -86,16 +112,10 @@ class Main1 extends React.Component{
     if(position<(-length+500)){
       return;
     }
-    var newpos = 'translateX('+(position-100).toString()+'px)'
+    var newpos = 'translateX('+(position-200).toString()+'px)'
     var target = document.getElementById("m1");
     target.style.transform = newpos;
-    this.setState({position:position-100});
-  }
-
-  reset(){
-    var newpos = 'translateX(0)'
-    var target = document.getElementById("m1");
-    target.style.transform = newpos;
+    this.setState({position:position-200});
   }
 
   render(){
@@ -103,8 +123,8 @@ class Main1 extends React.Component{
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >About me</span>
-      <span className = "hint" style={this.props.styleText} onClick={()=>{this.reset();this.props.onClick(1)}}>&#10534;</span>
-      <div className = "maincontent" id="m1" style={this.props.styleText}>
+      <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
+      <div className = "maincontent" id="m1" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} >
           {container1}
           {container2}
           {container3}
@@ -121,16 +141,37 @@ class Main2 extends React.Component{
     };
   }
 
+  add=(e)=>
+  {
+    console.log(e);
+    const el=document.getElementById("m2")
+    this.pos = this.state.position
+    this.left = el.style.left? parseInt(el.style.left, 10):0
+    this.offsetX=e.clientX-this.left
+    el.addEventListener('mousemove',this.move)
+  }
+
+  move=(e)=>
+  {
+    const el=document.getElementById("m2");
+    el.style.left = `${e.pageX-this.offsetX}px`
+  }
+
+  remove=()=>{
+    const el=document.getElementById("m2");
+    el.removeEventListener('mousemove',this.move)
+    this.setState({position:this.pos+this.left})
+  }
 
   handleLClick(){
     const position = this.state.position
-    if(position===0){
+    if(position>=0){
       return;
     }
-    var newpos = 'translateX('+(position+100).toString()+'px)'
+    var newpos = 'translateX('+(position+200).toString()+'px)'
     var target = document.getElementById("m2");
     target.style.transform = newpos;
-    this.setState({position:position+100});
+    this.setState({position:position+200});
   }
 
   handleRClick(){
@@ -140,26 +181,19 @@ class Main2 extends React.Component{
     if(position<(-length+500)){
       return;
     }
-    var newpos = 'translateX('+(position-100).toString()+'px)'
+    var newpos = 'translateX('+(position-200).toString()+'px)'
     var target = document.getElementById("m2");
     target.style.transform = newpos;
-    this.setState({position:position-100});
+    this.setState({position:position-200});
   }
-
-  reset(){
-    var newpos = 'translateX(0)'
-    var target = document.getElementById("m2");
-    target.style.transform = newpos;
-  }
-
 
   render(){
     return <div id = "main2" onMouseOver={()=>this.props.onMouseOver()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style2}>
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >Experience</span>
-      <span className = "hint" style={this.props.styleText} onClick={()=>{this.reset();this.props.onClick(2)}}>&#10534;</span>
-      <div className = "maincontent" id="m2" style={this.props.styleText}>
+      <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(2)}>&#10534;</span>
+      <div className = "maincontent" id="m2" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)}>
           {container1}
           {container2}
           {container3}
@@ -232,15 +266,38 @@ class Main4 extends React.Component{
     };
   }
 
+
+  add=(e)=>
+  {
+    console.log(e);
+    const el=document.getElementById("m4")
+    this.pos = this.state.position
+    this.left = el.style.left? parseInt(el.style.left, 10):0
+    this.offsetX=e.clientX-this.left
+    el.addEventListener('mousemove',this.move)
+  }
+
+  move=(e)=>
+  {
+    const el=document.getElementById("m4");
+    el.style.left = `${e.pageX-this.offsetX}px`
+  }
+
+  remove=()=>{
+    const el=document.getElementById("m4");
+    el.removeEventListener('mousemove',this.move)
+    this.setState({position:this.pos+this.left})
+  }
+
   handleLClick(){
     const position = this.state.position
-    if(position===0){
+    if(position>=0){
       return;
     }
-    var newpos = 'translateX('+(position+100).toString()+'px)'
+    var newpos = 'translateX('+(position+200).toString()+'px)'
     var target = document.getElementById("m4");
     target.style.transform = newpos;
-    this.setState({position:position+100});
+    this.setState({position:position+200});
   }
 
   handleRClick(){
@@ -250,16 +307,10 @@ class Main4 extends React.Component{
     if(position<(-length+500)){
       return;
     }
-    var newpos = 'translateX('+(position-100).toString()+'px)'
+    var newpos = 'translateX('+(position-200).toString()+'px)'
     var target = document.getElementById("m4");
     target.style.transform = newpos;
-    this.setState({position:position-100});
-  }
-
-  reset(){
-    var newpos = 'translateX(0)'
-    var target = document.getElementById("m4");
-    target.style.transform = newpos;
+    this.setState({position:position-200});
   }
 
   render(){
@@ -267,8 +318,8 @@ class Main4 extends React.Component{
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >Hobby</span>
-      <span className = "hint" style={this.props.styleText} onClick={()=>{this.reset();this.props.onClick(4)}}>&#10534;</span>
-      <div className = "maincontent" id="m4" style={this.props.styleText}>
+      <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(4)}>&#10534;</span>
+      <div className = "maincontent" id="m4" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)}>
           {container4}
         </div> 
       </div>
