@@ -57,9 +57,11 @@ class Container extends React.Component{
 }
 
 const image3 = require("./about-img3.jpeg");
+const image4 = require("./about-img4.jpeg");
+const image5 = require("./about-img5.jpeg");
 const container1 = <Container title="Good for you" desc="I was born in China and lived my high school years in Beijing. I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology." img={image3} color="#f6eeea"/>;
-const container2 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image3} color="#f6eeea"/>;
-const container3 = <Container title="Hello !" color="#f6eeea"/>;
+const container2 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image4} color="#f6eeea"/>;
+const container3 = <Container title="Hello !" img={image5} color="#f6eeea"/>;
 const container4 = <Container title="Japanese" desc="I love Japanese culture very much and even passed Japanese JLPT N1 test. I am intrigued by design, traveling, films, writing, art, armchair philosophy, fabulous food, and even better conversations.
 Seeking to be inspired, to envision the unlikely, to work hard for things that are worth it, and to be surrounded by those who bring out the best in me." color="#eeeaf6" />;
 
@@ -138,10 +140,11 @@ class Main1 extends React.Component{
   }
 
   render(){
-    return <div id = "main1" onMouseOver={()=>this.props.onMouseOver()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style1}>
+    return <div id = "main1" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style1}>
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >About me</span>
+      <span id="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
       <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
       <div className = "maincontent" id="m1" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} onTouchStart={(e)=>this.tadd(e)} onTouchEnd={(e)=>this.tremove(e)}>
           {container1}
@@ -228,7 +231,7 @@ class Main2 extends React.Component{
   }
 
   render(){
-    return <div id = "main2" onMouseOver={()=>this.props.onMouseOver()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style2}>
+    return <div id = "main2" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style2}>
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >Experience</span>
@@ -244,7 +247,7 @@ class Main2 extends React.Component{
 
 class Main3 extends React.Component{
   render(){
-    return <div id = "main3" onMouseOver={()=>this.props.onMouseOver()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style3}>
+    return <div id = "main3" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style3}>
       <span className = "mainlabel" >Skills</span>
       <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(3)}>&#10534;</span>
       <Skills style={this.props.styleText}/>
@@ -374,7 +377,7 @@ class Main4 extends React.Component{
   }
 
   render(){
-    return <div id = "main4" onMouseOver={()=>this.props.onMouseOver()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style4}>
+    return <div id = "main4" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style4}>
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >Hobby</span>
@@ -482,10 +485,10 @@ class MainBottom extends React.Component{
     }
     return <div id = "mainbottom">
       <div id="instruction">⤺ Hover on the tabs to open it!</div>
-       <Main1 onMouseOver={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
-      <Main2 onMouseOver={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
-      <Main3 onMouseOver={()=>this.handleMouseOver(3)} onMouseLeave={()=>this.handleMouseLeave(3)} onClick={(i)=>this.resetStyle(i)} style3={this.state.style3} styleText={this.state.current===3 ? this.state.styleText : {}}/>
-      <Main4 onMouseOver={()=>this.handleMouseOver(4)} onMouseLeave={()=>this.handleMouseLeave(4)} onClick={(i)=>this.resetStyle(i)} style4={this.state.style4} styleText={this.state.current===4 ? this.state.styleText : {}}/>
+       <Main1 onMouseEnter={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
+      <Main2 onMouseEnter={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
+      <Main3 onMouseEnter={()=>this.handleMouseOver(3)} onMouseLeave={()=>this.handleMouseLeave(3)} onClick={(i)=>this.resetStyle(i)} style3={this.state.style3} styleText={this.state.current===3 ? this.state.styleText : {}}/>
+      <Main4 onMouseEnter={()=>this.handleMouseOver(4)} onMouseLeave={()=>this.handleMouseLeave(4)} onClick={(i)=>this.resetStyle(i)} style4={this.state.style4} styleText={this.state.current===4 ? this.state.styleText : {}}/>
     </div>
   }
 }
