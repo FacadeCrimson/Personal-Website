@@ -196,6 +196,15 @@ div h3{
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+#instruction{
+  font-family: 'Bad Script', cursive;
+  font-size:40px;
+  left:400px;
+  top:10%;
+  position: absolute;
+
+}
+
 #main1 {
   height: 1000px;
   width: 80vw;
@@ -481,6 +490,11 @@ div h3{
   #mainbottom{
     width:100vw;
     height:800px;
+  }
+
+  #instruction{
+    left:300px;
+    top:2%;
   }
 
   #main1,#main2,#main3,#main4 {

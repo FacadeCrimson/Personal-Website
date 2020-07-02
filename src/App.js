@@ -73,12 +73,20 @@ class Main1 extends React.Component{
 
   add=(e)=>
   {
-    console.log(e);
     const el=document.getElementById("m1")
     this.pos = this.state.position
     this.left = el.style.left? parseInt(el.style.left, 10):0
     this.offsetX=e.clientX-this.left
     el.addEventListener('mousemove',this.move)
+  }
+
+  tadd=(e)=>
+  {
+    const el=document.getElementById("m1")
+    this.pos = this.state.position
+    this.left = el.style.left? parseInt(el.style.left, 10):0
+    this.offsetX=e.targetTouches[0].clientX-this.left
+    el.addEventListener('touchmove',this.tmove)
   }
 
   move=(e)=>
@@ -87,12 +95,23 @@ class Main1 extends React.Component{
     el.style.left = `${e.pageX-this.offsetX}px`
   }
 
+  tmove=(e)=>
+  {
+    const el=document.getElementById("m1");
+    el.style.left = `${e.targetTouches[0].pageX-this.offsetX}px`
+  }
+
   remove=()=>{
     const el=document.getElementById("m1");
     el.removeEventListener('mousemove',this.move)
     this.setState({position:this.pos+this.left})
   }
 
+  tremove=()=>{
+    const el=document.getElementById("m1");
+    el.removeEventListener('touchmove',this.move)
+    this.setState({position:this.pos+this.left})
+  }
   
   handleLClick(){
     const position = this.state.position
@@ -124,7 +143,7 @@ class Main1 extends React.Component{
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >About me</span>
       <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
-      <div className = "maincontent" id="m1" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} >
+      <div className = "maincontent" id="m1" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} onTouchStart={(e)=>this.tadd(e)} onTouchEnd={(e)=>this.tremove(e)}>
           {container1}
           {container2}
           {container3}
@@ -143,12 +162,20 @@ class Main2 extends React.Component{
 
   add=(e)=>
   {
-    console.log(e);
     const el=document.getElementById("m2")
     this.pos = this.state.position
     this.left = el.style.left? parseInt(el.style.left, 10):0
     this.offsetX=e.clientX-this.left
     el.addEventListener('mousemove',this.move)
+  }
+
+  tadd=(e)=>
+  {
+    const el=document.getElementById("m2")
+    this.pos = this.state.position
+    this.left = el.style.left? parseInt(el.style.left, 10):0
+    this.offsetX=e.targetTouches[0].clientX-this.left
+    el.addEventListener('touchmove',this.tmove)
   }
 
   move=(e)=>
@@ -157,9 +184,22 @@ class Main2 extends React.Component{
     el.style.left = `${e.pageX-this.offsetX}px`
   }
 
+  tmove=(e)=>
+  {
+    const el=document.getElementById("m2");
+    el.style.left = `${e.targetTouches[0].pageX-this.offsetX}px`
+  }
+
   remove=()=>{
     const el=document.getElementById("m2");
     el.removeEventListener('mousemove',this.move)
+    this.setState({position:this.pos+this.left})
+  }
+
+
+  tremove=()=>{
+    const el=document.getElementById("m2");
+    el.removeEventListener('touchmove',this.move)
     this.setState({position:this.pos+this.left})
   }
 
@@ -193,7 +233,7 @@ class Main2 extends React.Component{
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >Experience</span>
       <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(2)}>&#10534;</span>
-      <div className = "maincontent" id="m2" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)}>
+      <div className = "maincontent" id="m2" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} onTouchStart={(e)=>this.tadd(e)} onTouchEnd={(e)=>this.tremove(e)}>
           {container1}
           {container2}
           {container3}
@@ -266,15 +306,22 @@ class Main4 extends React.Component{
     };
   }
 
-
   add=(e)=>
   {
-    console.log(e);
     const el=document.getElementById("m4")
     this.pos = this.state.position
     this.left = el.style.left? parseInt(el.style.left, 10):0
     this.offsetX=e.clientX-this.left
     el.addEventListener('mousemove',this.move)
+  }
+
+  tadd=(e)=>
+  {
+    const el=document.getElementById("m4")
+    this.pos = this.state.position
+    this.left = el.style.left? parseInt(el.style.left, 10):0
+    this.offsetX=e.targetTouches[0].clientX-this.left
+    el.addEventListener('touchmove',this.tmove)
   }
 
   move=(e)=>
@@ -283,9 +330,22 @@ class Main4 extends React.Component{
     el.style.left = `${e.pageX-this.offsetX}px`
   }
 
+  tmove=(e)=>
+  {
+    const el=document.getElementById("m4");
+    el.style.left = `${e.targetTouches[0].pageX-this.offsetX}px`
+  }
+
   remove=()=>{
     const el=document.getElementById("m4");
     el.removeEventListener('mousemove',this.move)
+    this.setState({position:this.pos+this.left})
+  }
+
+
+  tremove=()=>{
+    const el=document.getElementById("m4");
+    el.removeEventListener('touchmove',this.move)
     this.setState({position:this.pos+this.left})
   }
 
@@ -319,7 +379,7 @@ class Main4 extends React.Component{
       <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
       <span className = "mainlabel" >Hobby</span>
       <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(4)}>&#10534;</span>
-      <div className = "maincontent" id="m4" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)}>
+      <div className = "maincontent" id="m4" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} onTouchStart={(e)=>this.tadd(e)} onTouchEnd={(e)=>this.tremove(e)}>
           {container4}
         </div> 
       </div>
@@ -421,6 +481,7 @@ class MainBottom extends React.Component{
       this.changeStyle(this.props.current);
     }
     return <div id = "mainbottom">
+      <div id="instruction">⤺ Hover on the tabs to open it!</div>
        <Main1 onMouseOver={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
       <Main2 onMouseOver={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
       <Main3 onMouseOver={()=>this.handleMouseOver(3)} onMouseLeave={()=>this.handleMouseLeave(3)} onClick={(i)=>this.resetStyle(i)} style3={this.state.style3} styleText={this.state.current===3 ? this.state.styleText : {}}/>
