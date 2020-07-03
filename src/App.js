@@ -482,6 +482,8 @@ class MainBottom extends React.Component{
         this.setState({[otherStyle]:{opacity:0}})
       }
     }
+    var button =document.getElementById("showform");
+    button.style.zIndex=0;
   }
 
   resetStyle =(i)=>{
@@ -494,6 +496,8 @@ class MainBottom extends React.Component{
         this.setState({[otherStyle]:{opacity:1}})
       }
     }
+    var button =document.getElementById("showform");
+    button.style.zIndex=6;
     this.props.reset();
   }
   
