@@ -7,7 +7,6 @@ class Navbar extends React.Component{
   }
 }
 
-
 class Main extends React.Component{
   render(){
     const image1 = require("./main-img1.jpeg")
@@ -56,16 +55,76 @@ class Container extends React.Component{
   }
 }
 
+// Contents for Main1, Main2, Main3, Main4 and Main5
 const image3 = require("./about-img3.jpeg");
 const image4 = require("./about-img4.jpeg");
 const image5 = require("./about-img5.jpeg");
 const container1 = <Container title="Good for you" desc="I was born in China and lived my high school years in Beijing. I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology." img={image3} color="#f6eeea"/>;
 const container2 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image4} color="#f6eeea"/>;
 const container3 = <Container title="Hello !" img={image5} color="#f6eeea"/>;
-const container4 = <Container title="Japanese" desc="I love Japanese culture very much and even passed Japanese JLPT N1 test. I am intrigued by design, traveling, films, writing, art, armchair philosophy, fabulous food, and even better conversations.
+
+const container41 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image4} color="#f6eeea"/>;
+const container42 = <Container title="Japanese" desc="I love Japanese culture very much and even passed Japanese JLPT N1 test. I am intrigued by design, traveling, films, writing, art, armchair philosophy, fabulous food, and even better conversations.
 Seeking to be inspired, to envision the unlikely, to work hard for things that are worth it, and to be surrounded by those who bring out the best in me." color="#eeeaf6" />;
 
+// functions for Main1, Main2, Main3, Main4 and Main5
+function add(e, main, id){
+    const el=document.getElementById(id)
+    main.pos = main.state.position
+    main.left = el.style.left? parseInt(el.style.left, 10):0
+    main.offsetX=e.clientX-main.left
+    main.move = move.bind(null,main,id)
+    el.addEventListener('mousemove', main.move)
+}
 
+function tadd(e, main, id){
+  const el=document.getElementById(id)
+  main.pos = main.state.position
+  main.left = el.style.left? parseInt(el.style.left, 10):0
+  main.offsetX=e.targetTouches[0].clientX-main.left
+  main.tmove = tmove.bind(null,main,id)
+  el.addEventListener('touchmove',main.tmove)
+}
+
+function move(main, id, e){
+  const el=document.getElementById(id);
+  el.style.left = `${e.pageX-main.offsetX}px`
+}
+
+function tmove(main, id, e){
+  const el=document.getElementById(id);
+  el.style.left = `${e.targetTouches[0].pageX-main.offsetX}px`
+}
+
+function remove(main, id){
+  const el=document.getElementById(id);
+  el.removeEventListener('mousemove', main.move)
+  main.setState({position:main.pos+main.left})
+}
+
+function tremove(main, id){
+  const el=document.getElementById(id);
+  el.removeEventListener('touchmove',main.tmove)
+  main.setState({position:main.pos+main.left})
+}
+
+function handleLClick(main, id){
+  const position = main.state.position
+  var newpos = 'translateX('+(position+200).toString()+'px)'
+  var target = document.getElementById(id);
+  target.style.transform = newpos;
+  main.setState({position:position+200});
+}
+
+function handleRClick(main, id){
+  const position = main.state.position;
+  var newpos = 'translateX('+(position-200).toString()+'px)'
+  const target = document.getElementById(id)
+  target.style.transform = newpos;
+  main.setState({position:position-200});
+}
+
+// Main contents
 class Main1 extends React.Component{
   constructor(props) {
     super(props);
@@ -74,79 +133,16 @@ class Main1 extends React.Component{
     };
   }
 
-  add=(e)=>
-  {
-    const el=document.getElementById("m1")
-    this.pos = this.state.position
-    this.left = el.style.left? parseInt(el.style.left, 10):0
-    this.offsetX=e.clientX-this.left
-    el.addEventListener('mousemove',this.move)
-  }
-
-  tadd=(e)=>
-  {
-    const el=document.getElementById("m1")
-    this.pos = this.state.position
-    this.left = el.style.left? parseInt(el.style.left, 10):0
-    this.offsetX=e.targetTouches[0].clientX-this.left
-    el.addEventListener('touchmove',this.tmove)
-  }
-
-  move=(e)=>
-  {
-    const el=document.getElementById("m1");
-    el.style.left = `${e.pageX-this.offsetX}px`
-  }
-
-  tmove=(e)=>
-  {
-    const el=document.getElementById("m1");
-    el.style.left = `${e.targetTouches[0].pageX-this.offsetX}px`
-  }
-
-  remove=()=>{
-    const el=document.getElementById("m1");
-    el.removeEventListener('mousemove',this.move)
-    this.setState({position:this.pos+this.left})
-  }
-
-  tremove=()=>{
-    const el=document.getElementById("m1");
-    el.removeEventListener('touchmove',this.move)
-    this.setState({position:this.pos+this.left})
-  }
-  
-  handleLClick(){
-    const position = this.state.position
-    if(position>=0){
-      return;
-    }
-    var newpos = 'translateX('+(position+200).toString()+'px)'
-    var target = document.getElementById("m1");
-    target.style.transform = newpos;
-    this.setState({position:position+200});
-  }
-
-  handleRClick(){
-    const content = document.getElementById("m1")
-    const length = content.offsetWidth;
-    const position = this.state.position;
-    if(position<(-length+500)){
-      return;
-    }
-    var newpos = 'translateX('+(position-200).toString()+'px)'
-    var target = document.getElementById("m1");
-    target.style.transform = newpos;
-    this.setState({position:position-200});
-  }
-
   render(){
     return <div id = "main1" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style1}>
-      <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
-      <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
-      <div className="header"><span className = "mainlabel" >About me</span><span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span></div>
+      <div id="leftarrow" style={this.props.styleText}  onClick={()=>handleLClick(this, "m1")}>&#8678;</div>
+      <div id="rightarrow" style={this.props.styleText} onClick={()=>handleRClick(this, "m1")}>&#8680;</div>
+      <div className="header">
+        <span className = "mainlabel" >About me</span>
+        <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
+      </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
-      <div className = "maincontent" id="m1" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} onTouchStart={(e)=>this.tadd(e)} onTouchEnd={(e)=>this.tremove(e)}>
+      <div className = "maincontent" id="m1" style={this.props.styleText} onMouseDown={(e)=>add(e,this,"m1")} onMouseUp={()=>remove(this,"m1")} onTouchStart={(e)=>tadd(e,this,"m1")} onTouchEnd={()=>tremove(this,"m1")}>
           {container1}
           {container2}
           {container3}
@@ -163,83 +159,16 @@ class Main2 extends React.Component{
     };
   }
 
-  add=(e)=>
-  {
-    const el=document.getElementById("m2")
-    this.pos = this.state.position
-    this.left = el.style.left? parseInt(el.style.left, 10):0
-    this.offsetX=e.clientX-this.left
-    el.addEventListener('mousemove',this.move)
-  }
-
-  tadd=(e)=>
-  {
-    const el=document.getElementById("m2")
-    this.pos = this.state.position
-    this.left = el.style.left? parseInt(el.style.left, 10):0
-    this.offsetX=e.targetTouches[0].clientX-this.left
-    el.addEventListener('touchmove',this.tmove)
-  }
-
-  move=(e)=>
-  {
-    const el=document.getElementById("m2");
-    el.style.left = `${e.pageX-this.offsetX}px`
-  }
-
-  tmove=(e)=>
-  {
-    const el=document.getElementById("m2");
-    el.style.left = `${e.targetTouches[0].pageX-this.offsetX}px`
-  }
-
-  remove=()=>{
-    const el=document.getElementById("m2");
-    el.removeEventListener('mousemove',this.move)
-    this.setState({position:this.pos+this.left})
-  }
-
-
-  tremove=()=>{
-    const el=document.getElementById("m2");
-    el.removeEventListener('touchmove',this.move)
-    this.setState({position:this.pos+this.left})
-  }
-
-  handleLClick(){
-    const position = this.state.position
-    if(position>=0){
-      return;
-    }
-    var newpos = 'translateX('+(position+200).toString()+'px)'
-    var target = document.getElementById("m2");
-    target.style.transform = newpos;
-    this.setState({position:position+200});
-  }
-
-  handleRClick(){
-    const content = document.getElementById("m2")
-    const length = content.offsetWidth;
-    const position = this.state.position;
-    if(position<(-length+500)){
-      return;
-    }
-    var newpos = 'translateX('+(position-200).toString()+'px)'
-    var target = document.getElementById("m2");
-    target.style.transform = newpos;
-    this.setState({position:position-200});
-  }
-
   render(){
     return <div id = "main2" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style2}>
-      <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
-      <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
+      <div id="leftarrow" style={this.props.styleText}  onClick={()=>handleLClick(this, "m2")}>&#8678;</div>
+      <div id="rightarrow" style={this.props.styleText} onClick={()=>handleRClick(this, "m2")}>&#8680;</div>
       <div className="header">
         <span className = "mainlabel" >Experience</span>
-        <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
+        <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(2)}>&#10534;</span>
       </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
-      <div className = "maincontent" id="m2" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} onTouchStart={(e)=>this.tadd(e)} onTouchEnd={(e)=>this.tremove(e)}>
+      <div className = "maincontent" id="m2" style={this.props.styleText} onMouseDown={(e)=>add(e,this,"m2")} onMouseUp={()=>remove(this,"m2")} onTouchStart={(e)=>tadd(e,this,"m2")} onTouchEnd={()=>tremove(this,"m2")}>
           {container1}
           {container2}
           {container3}
@@ -307,7 +236,6 @@ class Skills extends React.Component{
 }
 
 class Main4 extends React.Component{
-
   constructor(props) {
     super(props);
     this.state = {
@@ -315,88 +243,22 @@ class Main4 extends React.Component{
     };
   }
 
-  add=(e)=>
-  {
-    const el=document.getElementById("m4")
-    this.pos = this.state.position
-    this.left = el.style.left? parseInt(el.style.left, 10):0
-    this.offsetX=e.clientX-this.left
-    el.addEventListener('mousemove',this.move)
-  }
-
-  tadd=(e)=>
-  {
-    const el=document.getElementById("m4")
-    this.pos = this.state.position
-    this.left = el.style.left? parseInt(el.style.left, 10):0
-    this.offsetX=e.targetTouches[0].clientX-this.left
-    el.addEventListener('touchmove',this.tmove)
-  }
-
-  move=(e)=>
-  {
-    const el=document.getElementById("m4");
-    el.style.left = `${e.pageX-this.offsetX}px`
-  }
-
-  tmove=(e)=>
-  {
-    const el=document.getElementById("m4");
-    el.style.left = `${e.targetTouches[0].pageX-this.offsetX}px`
-  }
-
-  remove=()=>{
-    const el=document.getElementById("m4");
-    el.removeEventListener('mousemove',this.move)
-    this.setState({position:this.pos+this.left})
-  }
-
-
-  tremove=()=>{
-    const el=document.getElementById("m4");
-    el.removeEventListener('touchmove',this.move)
-    this.setState({position:this.pos+this.left})
-  }
-
-  handleLClick(){
-    const position = this.state.position
-    if(position>=0){
-      return;
-    }
-    var newpos = 'translateX('+(position+200).toString()+'px)'
-    var target = document.getElementById("m4");
-    target.style.transform = newpos;
-    this.setState({position:position+200});
-  }
-
-  handleRClick(){
-    const content = document.getElementById("m4")
-    const length = content.offsetWidth;
-    const position = this.state.position;
-    if(position<(-length+500)){
-      return;
-    }
-    var newpos = 'translateX('+(position-200).toString()+'px)'
-    var target = document.getElementById("m4");
-    target.style.transform = newpos;
-    this.setState({position:position-200});
-  }
-
   render(){
     return <div id = "main4" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style4}>
-      <div id="leftarrow" style={this.props.styleText}  onClick={()=>this.handleLClick()}>&#8678;</div>
-      <div id="rightarrow" style={this.props.styleText} onClick={()=>this.handleRClick()}>&#8680;</div>
+      <div id="leftarrow" style={this.props.styleText}  onClick={()=>handleLClick(this, "m4")}>&#8678;</div>
+      <div id="rightarrow" style={this.props.styleText} onClick={()=>handleRClick(this, "m4")}>&#8680;</div>
       <div className="header">
         <span className = "mainlabel" >Hobby</span>
-        <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
+        <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(4)}>&#10534;</span>
       </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
-      <div className = "maincontent" id="m4" style={this.props.styleText} onMouseDown={(e)=>this.add(e)} onMouseUp={(e)=>this.remove(e)} onTouchStart={(e)=>this.tadd(e)} onTouchEnd={(e)=>this.tremove(e)}>
-          {container4}
+      <div className = "maincontent" id="m4" style={this.props.styleText} onMouseDown={(e)=>add(e,this,"m4")} onMouseUp={()=>remove(this,"m4")} onTouchStart={(e)=>tadd(e,this,"m4")} onTouchEnd={()=>tremove(this,"m4")}>
+          {container41}
         </div> 
       </div>
   }
 }
+
 
 class Sidebar extends React.Component{
   render(){
@@ -538,9 +400,9 @@ class MainBottom extends React.Component{
       <div id="showform" onClick={()=>this.showForm()}>&nbsp;✎</div>
       <Response></Response>
        <Main1 onMouseEnter={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
-      <Main2 onMouseEnter={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
-      <Main3 onMouseEnter={()=>this.handleMouseOver(3)} onMouseLeave={()=>this.handleMouseLeave(3)} onClick={(i)=>this.resetStyle(i)} style3={this.state.style3} styleText={this.state.current===3 ? this.state.styleText : {}}/>
-      <Main4 onMouseEnter={()=>this.handleMouseOver(4)} onMouseLeave={()=>this.handleMouseLeave(4)} onClick={(i)=>this.resetStyle(i)} style4={this.state.style4} styleText={this.state.current===4 ? this.state.styleText : {}}/>
+        <Main2 onMouseEnter={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
+        <Main3 onMouseEnter={()=>this.handleMouseOver(3)} onMouseLeave={()=>this.handleMouseLeave(3)} onClick={(i)=>this.resetStyle(i)} style3={this.state.style3} styleText={this.state.current===3 ? this.state.styleText : {}}/>
+        <Main4 onMouseEnter={()=>this.handleMouseOver(4)} onMouseLeave={()=>this.handleMouseLeave(4)} onClick={(i)=>this.resetStyle(i)} style4={this.state.style4} styleText={this.state.current===4 ? this.state.styleText : {}}/>
     </div>
   }
 }

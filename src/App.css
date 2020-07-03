@@ -543,6 +543,7 @@ input[type="submit"]:hover{
   border-top-left-radius:50px;
   border-bottom-left-radius:50px;
   font-size:40px;
+  display:none;
 }
 #showform:hover{
   cursor: pointer;
@@ -638,6 +639,10 @@ input[type="submit"]:hover{
   }
   #response:before,#response:after{
     opacity:0;
+  }
+
+  #showform{
+    display:block;
   }
 
 }
