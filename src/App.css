@@ -267,15 +267,12 @@ div h3{
 
 .header{
   padding-top:5px;
+  padding-left:10px;
   font-size:40px;
   margin-left:50px;
   margin-right:50px;
   color:#303030;
   border-bottom: 1px solid #909090;
-}
-
-.mainlabel {
-  left: 5%;
 }
 
 .mainlabel:hover{
@@ -467,18 +464,54 @@ div h3{
 
 #response{
   float:right;
+  margin:30px;
+  margin-right:50px;
+  padding:10px;
+  position:relative;
   text-align:center;
   font-size:30px;
+  background:white;
   font-family: 'Bad Script', cursive;
 }
 
+#response,
+#response::before,
+#response::after {
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+  border: 1px solid #bbb;
+}
+
+#response::before,
+#response::after {
+  content: "";
+  position: absolute;
+  height: 95%;
+  width: 99%;
+  background-color: #eee;
+}
+
+#response::before {
+  right: 15px;
+  top: 0;
+  transform: rotate(-5deg);
+  z-index: -1;
+}
+
+#response::after {
+  top: -10px;
+  right: -5px;
+  transform: rotate(5deg);
+  z-index: -2;
+}
 
 input,textarea{
   display:block;
+  margin:auto;
   line-height:30px;
   width:300px;
   border:1px solid #606060;
   border-radius:5px;
+  resize:none;
 }
 
 input[type="submit"]{
@@ -497,6 +530,22 @@ input[type="submit"]{
 input[type="submit"]:hover{
    color:#FFFFFF;
    background-color:#000000;
+}
+
+#showform{
+  right:-10px;
+  top: 20px;
+  height:60px;
+  width:60px;
+  z-index:6;
+  background-color: #c1b4e0;
+  position:absolute;
+  border-top-left-radius:50px;
+  border-bottom-left-radius:50px;
+  font-size:40px;
+}
+#showform:hover{
+  cursor: pointer;
 }
 
 @media (max-width:1000px){
@@ -584,15 +633,19 @@ input[type="submit"]:hover{
     padding-top:200px;
   }
   #response{
+    z-index:5;
     display:none;
   }
+  #response:before,#response:after{
+    opacity:0;
+  }
+
 }
 
 @media (max-width:600px){
 .container{
   width:100vw;
 }
-
 
 .hint2{
   left:9%;
@@ -604,5 +657,10 @@ input[type="submit"]:hover{
 
 #rightarrow{
   display:none;
+}
+
+#response{
+  width:100%;
+  margin:0;
 }
 }

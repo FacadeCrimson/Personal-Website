@@ -441,7 +441,7 @@ class First extends React.Component{
 class Response extends React.Component{
   render(){
     return <div id="response">
-      <form className="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSddmWyx1_aJvYSIxH7sIcquntxErMgQGCygpDT-k152qnHsWA/formResponse" method="post" onsubmit="submitted=!0" target="hidden_iframe">
+      <form className="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSddmWyx1_aJvYSIxH7sIcquntxErMgQGCygpDT-k152qnHsWA/formResponse" method="post" target="hidden_iframe">
         <label>Title</label>
           <input name="entry.2093844086" type="text" pattern=".{3,}"  required title="3 characters minimum"/>
 
@@ -508,12 +508,30 @@ class MainBottom extends React.Component{
     }
   }
 
+  showForm(){
+    var form =document.getElementById("response");
+    form.style.display="block";
+    var button = document.getElementById("showform")
+    button.innerHTML = "&nbsp;&times"
+    button.addEventListener('click', this.closeForm,false)
+  }
+
+  closeForm = (e)=>{
+    e.stopPropagation();
+    var form =document.getElementById("response");
+    form.style.display="none";
+    var button = document.getElementById("showform")
+    button.innerHTML = "&nbsp;✎"
+    button.removeEventListener('click', this.closeForm,false)
+  }
+
   render(){
     if(this.props.current!==this.state.current){
       this.changeStyle(this.props.current);
     }
     return <div id = "mainbottom">
       <div id="instruction">⤺ Hover on the tabs to open it!</div>
+      <div id="showform" onClick={()=>this.showForm()}>&nbsp;✎</div>
       <Response></Response>
        <Main1 onMouseEnter={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
       <Main2 onMouseEnter={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
