@@ -42,30 +42,57 @@ class Contact extends React.Component{
   }
 }
 
-
-
 class Container extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      style:{},
+    };
+  }
+  handleEnter(){
+    this.setState({style:{opacity:1}});
+  }
+
+  handleLeave(){
+    this.setState({style:{opacity:0}});
+  }
+
   render(){
     const color = this.props.color
     return  <div className="container" id="c1" style={{backgroundColor:color}}>
         <div className="title">{this.props.title}</div>
         <div className="description">{this.props.desc}</div>
-        {this.props.img? <div className="graph"><img src={this.props.img} alt="sample"></img></div> : null}
+        {this.props.img? <div className="graph"><img src={this.props.img} alt="sample" onMouseEnter={()=>this.handleEnter()} onMouseLeave={()=>this.handleLeave()}></img></div> : null}
+        {this.props.caption? <div className="caption" style={this.state.style}>{this.props.caption}</div> : null}
   </div>
   }
 }
 
 // Contents for Main1, Main2, Main3, Main4 and Main5
+// images
 const image3 = require("./about-img3.jpeg");
 const image4 = require("./about-img4.jpeg");
-const image5 = require("./about-img5.jpeg");
+const image41 = require("./img41.jpeg");
+const image42 = require("./img42.jpeg");
+const image43 = require("./img43.jpeg");
+const image44 = require("./img44.jpg");
+
+// texts
 const container1 = <Container title="Good for you" desc="I was born in China and lived my high school years in Beijing. I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology." img={image3} color="#f6eeea"/>;
 const container2 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image4} color="#f6eeea"/>;
-const container3 = <Container title="Hello !" img={image5} color="#f6eeea"/>;
+const container3 = <Container title="Hello !" img={image42} color="#f6eeea"/>;
+var content1 =[container1,container2,container3]
 
-const container41 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image4} color="#f6eeea"/>;
-const container42 = <Container title="Japanese" desc="I love Japanese culture very much and even passed Japanese JLPT N1 test. I am intrigued by design, traveling, films, writing, art, armchair philosophy, fabulous food, and even better conversations.
-Seeking to be inspired, to envision the unlikely, to work hard for things that are worth it, and to be surrounded by those who bring out the best in me." color="#eeeaf6" />;
+
+var content2 = null;
+
+const container41 = <Container title="Japanese"  desc="I love Japanese culture and even passed Japanese JLPT N1 test." img={image41} caption="Photo was taken in Hakone" color="#f6eeea"/>;
+const container42 = <Container title="Hiking"  desc="I love hiking and even passed Japanese JLPT N1 test." img={image42} caption="Photo was taken in Hakone" color="#f6eeea"/>;
+const container43 = <Container title="Movies" desc="I love movies but I am tired of blockbusters." img={image43} caption="Check A.V. Club for their best of the decade." color="#f6eeea" />;
+const container44 = <Container title="MTG" desc="I love playing Magic the Gathering. Every week I would play some drafts or cubes since university. I still think there are tons of tricks to master." img={image44} caption="Baneslayer Angel intrigues me most." color="#f6eeea" />;
+const container45 = <Container title="Japanese" desc="I am intrigued by traveling, writing, art, fabulous food, and even better conversations.
+Seeking to be inspired, to envision the unlikely, to work hard for things that are worth it, and to be surrounded by those who bring out the best in me." color="#f6eeea" />;
+var content4 =[container41,container42,container43,container44,container45]
 
 // functions for Main1, Main2, Main3, Main4 and Main5
 function add(e, main, id){
@@ -143,9 +170,7 @@ class Main1 extends React.Component{
       </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
       <div className = "maincontent" id="m1" style={this.props.styleText} onMouseDown={(e)=>add(e,this,"m1")} onMouseUp={()=>remove(this,"m1")} onTouchStart={(e)=>tadd(e,this,"m1")} onTouchEnd={()=>tremove(this,"m1")}>
-          {container1}
-          {container2}
-          {container3}
+          {content1}
         </div>    
       </div>
   }
@@ -169,9 +194,7 @@ class Main2 extends React.Component{
       </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
       <div className = "maincontent" id="m2" style={this.props.styleText} onMouseDown={(e)=>add(e,this,"m2")} onMouseUp={()=>remove(this,"m2")} onTouchStart={(e)=>tadd(e,this,"m2")} onTouchEnd={()=>tremove(this,"m2")}>
-          {container1}
-          {container2}
-          {container3}
+          {content2}
         </div> 
       </div>
   }
@@ -253,7 +276,7 @@ class Main4 extends React.Component{
       </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
       <div className = "maincontent" id="m4" style={this.props.styleText} onMouseDown={(e)=>add(e,this,"m4")} onMouseUp={()=>remove(this,"m4")} onTouchStart={(e)=>tadd(e,this,"m4")} onTouchEnd={()=>tremove(this,"m4")}>
-          {container41}
+          {content4}
         </div> 
       </div>
   }

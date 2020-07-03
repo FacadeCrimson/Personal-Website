@@ -157,7 +157,7 @@ div h3{
   width: 50%;
   padding: 1.5%;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.8);
   position:absolute;
   font-size:35px;
   font-family: 'Cormorant Garamond', serif;
@@ -355,9 +355,24 @@ div h3{
 .graph img{
   border-radius:10px;
   max-width:100%;
+  transition: opacity 0.5s ease;
 }
 
-/* .graph img:hover{} */
+.caption{
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  margin-left:10px;
+  margin-right:10px;
+  margin-top:-135px;
+  max-width:100%;
+  opacity:0;
+  padding-top:50px;
+  padding-bottom:50px;
+  font-size:15px;
+  text-align: center;
+  transition: opacity .5s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 
 .skillcontent{
   top:20%;
@@ -366,7 +381,7 @@ div h3{
   position:absolute;
   font-size:1vw;
   opacity:0;
-  transition:opacity 2s ease-in;
+  transition:opacity 2s ease;
   display: flex;
   flex-direction: row;
 }
