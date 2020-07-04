@@ -583,7 +583,7 @@ input[type="submit"]:hover{
   top: 20px;
   height:60px;
   width:60px;
-  z-index:6;
+  z-index:7;
   background-color: #c1b4e0;
   position:absolute;
   border-top-left-radius:50px;
