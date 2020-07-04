@@ -60,39 +60,61 @@ class Container extends React.Component{
   render(){
     const color = this.props.color
     return  <div className="container" id="c1" style={{backgroundColor:color}}>
-        <div className="title">{this.props.title}</div>
-        <div className="description">{this.props.desc}</div>
+        {this.props.title? <div className="title">{this.props.title}</div> : null}
+        <div className="description" style={this.props.author==="me"?{fontFamily:'Bad Script'}:null}>{this.props.desc}</div>
         {this.props.img? <div className="graph"><img src={this.props.img} alt="sample" onMouseEnter={()=>this.handleEnter()} onMouseLeave={()=>this.handleLeave()}></img></div> : null}
         {this.props.caption? <div className="caption" style={this.state.style}>{this.props.caption}</div> : null}
+        {this.props.author? <div className="author" >—— {this.props.author}</div> : null}
   </div>
   }
 }
 
 // Contents for Main1, Main2, Main3, Main4 and Main5
 // images
-const image3 = require("./about-img3.jpeg");
-const image4 = require("./about-img4.jpeg");
+const image11 = require("./img11.jpg");
+const image12 = require("./img12.jpg");
+const image13 = require("./img13.jpeg");
+const image14 = require("./img14.jpeg");
 const image41 = require("./img41.jpeg");
 const image42 = require("./img42.jpeg");
 const image43 = require("./img43.jpeg");
 const image44 = require("./img44.jpg");
 
 // texts
-const container1 = <Container title="Good for you" desc="I was born in China and lived my high school years in Beijing. I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology." img={image3} color="#f6eeea"/>;
-const container2 = <Container title="how are you" desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image4} color="#f6eeea"/>;
-const container3 = <Container title="Hello !" img={image42} color="#f6eeea"/>;
-var content1 =[container1,container2,container3]
+const container11 = <Container title="Early years" desc="I was born in a middle province in China. I spent some of my childhood with my grandparents." img={image11} color="#f6eeea"/>;
+const container12 = <Container title="Beijing" desc="I spent my high school years in Beijing. " img={image12} color="#f6eeea"/>;
+const container13 = <Container title="Hong Kong" desc="I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology." img={image13} color="#f6eeea"/>;
+const container14 = <Container title="Washington D.C." desc="In 2019, I arrived in Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University." img={image14} color="#f6eeea"/>;
+var content1 =[container11,container12,container13,container14]
 
 
 var content2 = null;
 
-const container41 = <Container title="Japanese"  desc="I love Japanese culture and even passed Japanese JLPT N1 test." img={image41} caption="Photo was taken in Hakone" color="#f6eeea"/>;
-const container42 = <Container title="Hiking"  desc="I love hiking and even passed Japanese JLPT N1 test." img={image42} caption="Photo was taken in Hakone" color="#f6eeea"/>;
-const container43 = <Container title="Movies" desc="I love movies but I am tired of blockbusters." img={image43} caption="Check A.V. Club for their best of the decade." color="#f6eeea" />;
-const container44 = <Container title="MTG" desc="I love playing Magic the Gathering. Every week I would play some drafts or cubes since university. I still think there are tons of tricks to master." img={image44} caption="Baneslayer Angel intrigues me most." color="#f6eeea" />;
-const container45 = <Container title="Japanese" desc="I am intrigued by traveling, writing, art, fabulous food, and even better conversations.
-Seeking to be inspired, to envision the unlikely, to work hard for things that are worth it, and to be surrounded by those who bring out the best in me." color="#f6eeea" />;
-var content4 =[container41,container42,container43,container44,container45]
+const container41 = <Container title="Japanese"  desc="I love Japanese pop culture. Be it music, anime, game, idol or just food, the contents they produce are eccentric and awe-inspiring. No wonder I even achieved JLPT N1 proficiency in Japanese." img={image41} caption="In Hakone where we saw Mount Fuji" color="#f6eeea"/>;
+const container42 = <Container title="Hiking"  desc="Hiking is my favourite outdoor activity. Surrounded by nature for half a day, it is both mind-clearing and fulling." img={image42} caption="Great Falls Park near D.C." color="#f6eeea"/>;
+const container43 = <Container title="Movies" desc="Watching movies is something I enjoy. I would usually check their rating before commiting my time and I am really tired of blockbusters." img={image43} caption="Check A.V. Club for their best of the decade." color="#f6eeea" />;
+const container44 = <Container title="MTG" desc="I love playing Magic the Gathering. Every week I would play some drafts or cubes ever since university. I still think there are tons of tricks to master." img={image44} caption="Baneslayer Angel intrigues me most." color="#f6eeea" />;
+var content4 =[container41,container42,container43,container44]
+
+const container51 = <Container desc="Success is liking yourself, liking what you do, and liking how you do it." author="Maya Angelou" color="#eeeaf6" />
+const container52 = <Container desc="Winning does not tempt that man. This is how he grows: by being defeated, decisively, by constantly greater beings." author="Rainer Maria Rilke" color="#eeeaf6" />
+const container53 = <Container desc="Every time I go jogging, I would set the end at a restaurant or supermarket that I would visit. Associating jogging whith a goal reduces stress and increases willingness." author="me" color="#eeeaf6" />
+const container54 = <Container desc="Imitation of idols is a powerful process of shaping actions. It would be beneficial if parents could direct this 'style learning' in a conscious way." author="me" color="#eeeaf6" />
+const container55 = <Container desc="We need to be extremely careful in choosing environments. When faced with such decisions, I would often examine friends who I am similar to and people smarter than me." author="me" color="#eeeaf6" />
+const container56 = <Container desc="God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference." author="Reinhold Niebuhr" color="#eeeaf6" />
+
+var content5 = [container51,container52,container53,container54,container55,container56]
+
+function shuffle(array) {
+  var m = array.length, t, i;
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+  return array;
+}
 
 // functions for Main1, Main2, Main3, Main4 and Main5
 function add(e, main, id){
@@ -114,23 +136,23 @@ function tadd(e, main, id){
 }
 
 function move(main, id, e){
-  const el=document.getElementById(id);
+  const el=document.getElementById(id)
   el.style.left = `${e.pageX-main.offsetX}px`
 }
 
 function tmove(main, id, e){
-  const el=document.getElementById(id);
+  const el=document.getElementById(id)
   el.style.left = `${e.targetTouches[0].pageX-main.offsetX}px`
 }
 
 function remove(main, id){
-  const el=document.getElementById(id);
+  const el=document.getElementById(id)
   el.removeEventListener('mousemove', main.move)
   main.setState({position:main.pos+main.left})
 }
 
 function tremove(main, id){
-  const el=document.getElementById(id);
+  const el=document.getElementById(id)
   el.removeEventListener('touchmove',main.tmove)
   main.setState({position:main.pos+main.left})
 }
@@ -138,17 +160,17 @@ function tremove(main, id){
 function handleLClick(main, id){
   const position = main.state.position
   var newpos = 'translateX('+(position+200).toString()+'px)'
-  var target = document.getElementById(id);
-  target.style.transform = newpos;
-  main.setState({position:position+200});
+  var target = document.getElementById(id)
+  target.style.transform = newpos
+  main.setState({position:position+200})
 }
 
 function handleRClick(main, id){
-  const position = main.state.position;
+  const position = main.state.position
   var newpos = 'translateX('+(position-200).toString()+'px)'
   const target = document.getElementById(id)
-  target.style.transform = newpos;
-  main.setState({position:position-200});
+  target.style.transform = newpos
+  main.setState({position:position-200})
 }
 
 // Main contents
@@ -189,7 +211,7 @@ class Main2 extends React.Component{
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>handleLClick(this, "m2")}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>handleRClick(this, "m2")}>&#8680;</div>
       <div className="header">
-        <span className = "mainlabel" >Experience</span>
+        <span className = "mainlabel" >Projects</span>
         <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(2)}>&#10534;</span>
       </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
@@ -207,7 +229,6 @@ class Main3 extends React.Component{
         <span className = "mainlabel" >Skill</span>
         <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(1)}>&#10534;</span>
       </div>
-      <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
       <Skills style={this.props.styleText}/>
       </div>
   }
@@ -234,23 +255,34 @@ class Skills extends React.Component{
       <div className="skillcontent" style={this.props.style}>
       <div className = "skills">
         <ul>
-          <Skillitem name="Python" star="5"></Skillitem>
+          <Skillitem name="Javascript" star="5"></Skillitem>
           <Skillitem name="HTML" star="5"></Skillitem>
           <Skillitem name="CSS" star="5"></Skillitem>
-          <Skillitem name="React" star="5"></Skillitem>
-          <Skillitem name="R" star="5"></Skillitem>
-          <Skillitem name="MVC pattern" star="5"></Skillitem>
-          <Skillitem name="RESTful API" star="5"></Skillitem>
-          <Skillitem name="Bootstrap" star="5"></Skillitem>
+          <Skillitem name="React" star="4"></Skillitem>
+          <Skillitem name="Flask" star="4"></Skillitem>
+          <Skillitem name="Bootstrap" star="3"></Skillitem>
+          <Skillitem name="MVC pattern" star="4"></Skillitem>
+          <Skillitem name="RESTful API" star="4"></Skillitem>
+          <Skillitem name="Unix shell" star="3"></Skillitem>
+          <Skillitem name="Object Orientated Programming" star="5"></Skillitem>
+          <Skillitem name="Git" star="4"></Skillitem>
+          <Skillitem name="AWS" star="2"></Skillitem>
         </ul>
         </div>
       <div className = "skills">
         <ul>
+        <Skillitem name="Python" star="5"></Skillitem>
+        <Skillitem name="R" star="5"></Skillitem>
         <Skillitem name="MYSQL" star="5"></Skillitem>
+        <Skillitem name="PostgresSQL" star="5"></Skillitem>
         <Skillitem name="Database" star="4"></Skillitem>
         <Skillitem name="Statistics" star="4"></Skillitem>
+        <Skillitem name="Excel" star="4"></Skillitem>
+        <Skillitem name="Tableau" star="3"></Skillitem>
         <Skillitem name="Machine Learning" star="4"></Skillitem>
         <Skillitem name="Deep Learning" star="2"></Skillitem>
+        <Skillitem name="Time Series" star="4"></Skillitem>
+        <Skillitem name="Digital Analytics" star="3"></Skillitem>
         </ul>
       </div>
       </div>
@@ -282,15 +314,40 @@ class Main4 extends React.Component{
   }
 }
 
+class Main5 extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      position:0,
+    };
+  }
+  content5 = shuffle(content5)
+  render(){
+    return <div id = "main5" onMouseEnter={()=>this.props.onMouseEnter()} onMouseLeave={()=>this.props.onMouseLeave()} style={this.props.style5}>
+      <div id="leftarrow" style={this.props.styleText}  onClick={()=>handleLClick(this, "m5")}>&#8678;</div>
+      <div id="rightarrow" style={this.props.styleText} onClick={()=>handleRClick(this, "m5")}>&#8680;</div>
+      <div className="header">
+        <span className = "mainlabel" >Musing</span>
+        <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(5)}>&#10534;</span>
+      </div>
+      <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
+      <div className = "maincontent" id="m5" style={this.props.styleText} onMouseDown={(e)=>add(e,this,"m5")} onMouseUp={()=>remove(this,"m5")} onTouchStart={(e)=>tadd(e,this,"m5")} onTouchEnd={()=>tremove(this,"m5")}>
+          {content5}
+        </div> 
+      </div>
+  }
+}
+
 
 class Sidebar extends React.Component{
   render(){
     return <div className = "sidebar" style={this.props.style}>
       <div className = "menu">Menu</div>
       <div className = "item" onClick={()=>this.props.onClick(1)}>About</div>
-      <div className = "item" onClick={()=>this.props.onClick(2)}>Experience</div>
+      <div className = "item" onClick={()=>this.props.onClick(2)}>Projects</div>
       <div className = "item" onClick={()=>this.props.onClick(3)}>Skills</div>
       <div className = "item" onClick={()=>this.props.onClick(4)}>Hobby</div>
+      <div className = "item" onClick={()=>this.props.onClick(5)}>Musing</div>
       <div id = "closebutton" onClick={()=>this.props.close()}>&times;</div>
     </div>
   }
@@ -352,6 +409,7 @@ class MainBottom extends React.Component{
       style2:{},
       style3:{},
       style4:{},
+      style5:{},
       styleText:{},
     };
   }
@@ -360,8 +418,8 @@ class MainBottom extends React.Component{
     this.props.set(i);
     var trans = 'scale(1)';
     var style ="style"+i.toString()
-    this.setState({[style]: {transform:trans,zIndex:5}, styleText:{opacity:1},current:i});
-    for(var j=1;j<5;j++){
+    this.setState({[style]: {transform:trans,zIndex:6}, styleText:{opacity:1},current:i});
+    for(var j=1;j<6;j++){
       if(j!==i){
         var otherStyle ="style"+j.toString()
         this.setState({[otherStyle]:{opacity:0}})
@@ -375,7 +433,7 @@ class MainBottom extends React.Component{
     var trans = 'rotate(36.85deg) translate('+(i*60-60).toString()+'px,'+(i*80-80).toString()+'px)';
     var style ="style"+i.toString()
     this.setState({[style]: {transform:trans}, styleText:{},current:undefined});
-    for(var j=1;j<5;j++){
+    for(var j=1;j<6;j++){
       if(j!==i){
         var otherStyle ="style"+j.toString()
         this.setState({[otherStyle]:{opacity:1}})
@@ -422,10 +480,11 @@ class MainBottom extends React.Component{
       <div id="instruction">⤺ Hover on the tabs to open it!</div>
       <div id="showform" onClick={()=>this.showForm()}>&nbsp;✎</div>
       <Response></Response>
-       <Main1 onMouseEnter={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
+        <Main1 onMouseEnter={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
         <Main2 onMouseEnter={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
         <Main3 onMouseEnter={()=>this.handleMouseOver(3)} onMouseLeave={()=>this.handleMouseLeave(3)} onClick={(i)=>this.resetStyle(i)} style3={this.state.style3} styleText={this.state.current===3 ? this.state.styleText : {}}/>
         <Main4 onMouseEnter={()=>this.handleMouseOver(4)} onMouseLeave={()=>this.handleMouseLeave(4)} onClick={(i)=>this.resetStyle(i)} style4={this.state.style4} styleText={this.state.current===4 ? this.state.styleText : {}}/>
+        <Main5 onMouseEnter={()=>this.handleMouseOver(5)} onMouseLeave={()=>this.handleMouseLeave(5)} onClick={(i)=>this.resetStyle(i)} style5={this.state.style5} styleText={this.state.current===5 ? this.state.styleText : {}}/>
     </div>
   }
 }
