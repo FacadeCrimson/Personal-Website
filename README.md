@@ -1,3 +1,17 @@
+### About
+
+
+This is the source code for my personal website which is hosted on github page. You can visit it directly from simontan.com which is my personal domain.
+
+This website is built completely on React. With careful tuning of CSS and Javascript, I believe that it looks perfect. But if you find any subtle inconcistencies, don't hesitate to submit your opinion through the form on the webpage! 
+
+Thanks to GitHub for free hosting and thanks to Freepik for their free and beautiful icons.
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
