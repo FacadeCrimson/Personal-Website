@@ -137,14 +137,14 @@ div h3{
 
 #menubutton{
   position: absolute;
-  top: 2%;
-  right:2%;
+  top: 1%;
+  right:1%;
   z-index:5;
-  color: #606060;
-  font-size: 4vw;
+  color: #303030;
+  font-size: 25px;
   padding-right: 10px;
   padding-left: 10px;
-  border-radius: 15px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.6);
   opacity:0;
 }
@@ -663,6 +663,8 @@ input[type="submit"]:hover{
   
   .sidebar{
     width: 100px;
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
   }
 
   .menu{
@@ -713,5 +715,8 @@ input[type="submit"]:hover{
 #response{
   width:100%;
   margin:0;
+}
+#showform{
+  right:-10px;
 }
 }

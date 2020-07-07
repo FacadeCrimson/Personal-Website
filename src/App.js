@@ -87,29 +87,31 @@ const image44 = require("./img44.jpg");
 
 // texts
 const container11 = <Container title="Early years" desc="I was born in a middle province in China. I spent some of my childhood with my grandparents. I still remember the good local cuisines and happy times playing with my cousins." img={image11} color="#f6eeea"/>;
-const container12 = <Container title="Beijing" desc="I went to high school in Beijing. My peers there are more outgoing and excel at various areas. I learnt a lot from them" img={image12} color="#f6eeea"/>;
-const container13 = <Container title="Hong Kong" desc="I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology. The scenery there is amzing and those years really broaden my horizons." img={image13} color="#f6eeea"/>;
+const container12 = <Container title="Beijing" desc="I went to high school in Beijing. My peers there are more outgoing and excel at various areas. I learnt a lot from them." img={image12} color="#f6eeea"/>;
+const container13 = <Container title="Hong Kong" desc="I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology. The scenery there is amazing and those years really broaden my horizons." img={image13} color="#f6eeea"/>;
 const container14 = <Container title="Washington D.C." desc="In 2019, I came to Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University. I expect to graduate by the end of 2020." img={image14} color="#f6eeea"/>;
 var content1 =[container11,container12,container13,container14]
 
-const container21 = <Container title="Personal Website"  desc="This website is built using React and the necessary HTML, CSS and Javascript. I find the logic handling and component reusing functionality of React extremely helpful." img={image21} caption="" color="#eeeaf6"/>;
-const container22 = <Container title="Fullstack Capstone"  desc="As the capstone for Udacity Full-Stack project, I build a Web API to simulate a stock exchange. I utilize Flask, authentication, deployment and database structures knowledge to allow actions by different identities." img={image22} caption="" color="#eeeaf6"/>;
-const container23 = <Container title="Kaggle House Prices Dataset Analysis"  desc="Apply feature selection to over 80 columns and exercise ordinal encoding. Carefully tune GBM and XGBoost before achieving Kaggle score of 0.12769." img={image23} caption="" color="#eeeaf6"/>;
-const container24 = <Container title="UCI Census Income Dataset Analysis"  desc="Pre-process data with scaling, transforming, grouping, categorical encoding and imputation. Tune the parameters with grid search and cross validation (caret), before determining the best model for the task of income classification" img={image24} caption="" color="#eeeaf6"/>;
+const container21 = <Container title="Personal Website"  desc="This website is built using React and complementary HTML, CSS and Javascript. I find the logic handling and component reusing functions of React extremely helpful." img={image21} caption="" color="#eeeaf6"/>;
+const container22 = <Container title="Full-Stack Capstone"  desc="As the capstone for Udacity Full-Stack project, I build a Web API to simulate a stock exchange. I utilize Flask, authorization, deployment, testing and database knowledge to allow actions by different identities." img={image22} caption="" color="#eeeaf6"/>;
+//•	Design and build out all of the API endpoints and database structures needed for simulation of stock trading and properly secure them for use in any front end application. Adopt Flask as backend framework and PostgreSQL as database solution. Implement role-based authorization with Auth0 and deployment to Heroku. Implement unit testing and Postman API testing.
+const container23 = <Container title="Web API for Booking"  desc="Compose the normalised data models and model interactions with automated database migrations., implement controllers that handle data and render view. " img={image23} caption="" color="#eeeaf6"/>;
+const container24 = <Container title="Kaggle House Prices Dataset Analysis"  desc="Apply feature selection to over 80 columns and exercise ordinal encoding. Carefully tune GBM and XGBoost before achieving Kaggle score of 0.12769." img={image24} caption="" color="#eeeaf6"/>;
+// desc="Pre-process data with scaling, transforming, grouping, categorical encoding and imputation. Tune the parameters with grid search and cross validation (caret), before determining the best model for the task of income classification" img={image24} caption="" color="#eeeaf6"/>;
 const container25 = <Container title="Chicago Traffic Crash Dataset Modelling"  desc="We construct a dimensional database for the dataset in PostgreSQL. And then, leverage SQL queries and Spark SQL to extract, transform and analyse information regarding predetermined question" img={image25} caption="" color="#eeeaf6"/>;
 var content2 = [container21,container22,container23,container24,container25];
 
 const container41 = <Container title="Japanese"  desc="I love Japanese pop culture. Be it music, anime, game, idol or just food, the contents they produce are eccentric and awe-inspiring. No wonder I even achieved JLPT N1 proficiency in Japanese." img={image41} caption="In Hakone where we saw Mount Fuji" color="#eeeaf6"/>;
 const container42 = <Container title="Hiking"  desc="Hiking is my favourite outdoor activity. Surrounded by nature for half a day, it is both mind-clearing and fulling. National parks are wonders." img={image42} caption="Great Falls Park near D.C." color="#eeeaf6"/>;
-const container43 = <Container title="Movies" desc="Watching movies is something I enjoy. I would usually check their rating before commiting my time and I am really tired of blockbusters." img={image43} caption="Check A.V. Club for their best of the decade." color="#eeeaf6" />;
+const container43 = <Container title="Movies" desc="Watching movies is something I enjoy. I would usually check their rating before commiting my time and I am really tired of blockbusters, as they lack everything except graphics." img={image43} caption="Check A.V. Club for their best of the decade" color="#eeeaf6" />;
 const container44 = <Container title="MTG" desc="I love playing Magic the Gathering. Every week I would play some drafts or cubes ever since university. I still think there are tons of tricks to master." img={image44} caption="Baneslayer Angel intrigues me most." color="#eeeaf6" />;
 var content4 =[container41,container42,container43,container44]
 
 const container51 = <Container desc="Success is liking yourself, liking what you do, and liking how you do it." author="Maya Angelou" color="#f6eeea" />
 const container52 = <Container desc="Winning does not tempt that man. This is how he grows: by being defeated, decisively, by constantly greater beings." author="Rainer Maria Rilke" color="#f6eeea" />
-const container53 = <Container desc="Every time I go jogging, I would set the end at a restaurant or supermarket that I would visit. Associating jogging whith a goal reduces stress and increases willingness." author="me" color="#f6eeea" />
-const container54 = <Container desc="Imitation of idols is a powerful process of shaping actions. It would be beneficial if parents could direct this 'style learning' in a conscious way." author="me" color="#f6eeea" />
-const container55 = <Container desc="We need to be extremely careful in choosing environments. When faced with such decisions, I would often examine friends who I am similar to and people smarter than me." author="me" color="#f6eeea" />
+const container53 = <Container desc="Every time I go jogging, I would set the end at a restaurant or supermarket that I would visit. Associating jogging with a goal reduces stress and increases willingness." author="me" color="#f6eeea" />
+const container54 = <Container desc="Imitation of idols is a powerful process of shaping actions. I call this 'style learning' and people should use it consciously." author="me" color="#f6eeea" />
+const container55 = <Container desc="We need to be extremely careful in choosing environments. When faced with such decisions, I would often examine friends who I am similar to and people I admire to imagine what will their choices be." author="me" color="#f6eeea" />
 const container56 = <Container desc="God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference." author="Reinhold Niebuhr" color="#f6eeea" />
 
 var content5 = [container51,container52,container53,container54,container55,container56]
@@ -220,7 +222,7 @@ class Main2 extends React.Component{
       <div id="leftarrow" style={this.props.styleText}  onClick={()=>handleLClick(this, "m2")}>&#8678;</div>
       <div id="rightarrow" style={this.props.styleText} onClick={()=>handleRClick(this, "m2")}>&#8680;</div>
       <div className="header">
-        <span className = "mainlabel" >Projects</span>
+        <span className = "mainlabel" >Project</span>
         <span className = "hint" style={this.props.styleText} onClick={()=>this.props.onClick(2)}>&#10534;</span>
       </div>
       <span className="hint2" style={this.props.styleText}>⤹ You could scroll this by mouse, trackpad or touch! ⤵</span>
@@ -264,7 +266,7 @@ class Skills extends React.Component{
       <div className="skillcontent" style={this.props.style}>
       <div className = "skills">
         <ul>
-          <Skillitem name="Javascript" star="5"></Skillitem>
+          <Skillitem name="JavaScript" star="5"></Skillitem>
           <Skillitem name="HTML" star="5"></Skillitem>
           <Skillitem name="CSS" star="5"></Skillitem>
           <Skillitem name="React" star="4"></Skillitem>
@@ -282,8 +284,8 @@ class Skills extends React.Component{
         <ul>
         <Skillitem name="Python" star="5"></Skillitem>
         <Skillitem name="R" star="5"></Skillitem>
-        <Skillitem name="MYSQL" star="5"></Skillitem>
-        <Skillitem name="PostgresSQL" star="5"></Skillitem>
+        <Skillitem name="MySQL" star="5"></Skillitem>
+        <Skillitem name="PostgreSQL" star="5"></Skillitem>
         <Skillitem name="Database" star="4"></Skillitem>
         <Skillitem name="Statistics" star="4"></Skillitem>
         <Skillitem name="Excel" star="4"></Skillitem>
@@ -353,8 +355,8 @@ class Sidebar extends React.Component{
     return <div className = "sidebar" style={this.props.style}>
       <div className = "menu">Menu</div>
       <div className = "item" onClick={()=>this.props.onClick(1)}>About</div>
-      <div className = "item" onClick={()=>this.props.onClick(2)}>Projects</div>
-      <div className = "item" onClick={()=>this.props.onClick(3)}>Skills</div>
+      <div className = "item" onClick={()=>this.props.onClick(2)}>Project</div>
+      <div className = "item" onClick={()=>this.props.onClick(3)}>Skill</div>
       <div className = "item" onClick={()=>this.props.onClick(4)}>Hobby</div>
       <div className = "item" onClick={()=>this.props.onClick(5)}>Musing</div>
       <div id = "closebutton" onClick={()=>this.props.close()}>&times;</div>
