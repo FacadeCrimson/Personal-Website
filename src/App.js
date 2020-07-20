@@ -80,6 +80,7 @@ const image22 = require("./img22.jpg");
 const image23 = require("./img23.jpeg");
 const image24 = require("./img24.jpeg");
 const image25 = require("./img25.jpeg");
+const image26 = require("./img26.jpeg");
 const image41 = require("./img41.jpeg");
 const image42 = require("./img42.jpeg");
 const image43 = require("./img43.jpeg");
@@ -92,12 +93,13 @@ const container13 = <Container title="Hong Kong" desc="I pursued my Bachelor's d
 const container14 = <Container title="Washington D.C." desc="In 2019, I came to Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University. I expect to graduate by the end of 2020." img={image14} color="#f6eeea"/>;
 var content1 =[container11,container12,container13,container14]
 
+const container26 = <Container title="Online Grocery Store"  desc="I construct the frontend with Next.js. For the backend, I adopt Node.js, Express and MongoDB. The website has essential functionality of search, filter, log in/out, comment, view history, cart and a portal for site statistics as well as listing and stock management." img={image26} caption="" color="#eeeaf6"/>;
 const container21 = <Container title="Personal Website"  desc="This website is built using React and complementary HTML, CSS and Javascript. I find the logic handling and component reusing functions of React extremely helpful." img={image21} caption="" color="#eeeaf6"/>;
 const container22 = <Container title="Full-Stack Capstone"  desc="I design and build all API endpoints and database structures for simulation of stock trading. I utilize Flask, PostgreSQL, authorization, deployment and testing knowledge to implement role-based actions." img={image22} caption="" color="#eeeaf6"/>;
 const container23 = <Container title="Web API for Booking"  desc="Compose the normalised data models and model interactions with automated database migrations. Implement controllers that handle data and render view. " img={image23} caption="" color="#eeeaf6"/>;
 const container24 = <Container title="Kaggle House Prices Dataset Analysis"  desc="Pre-process data with scaling, transformation, binning, categorical encoding, imputation and feature selection. Carefully tune the parameters of GBM and XGBoost. Determine the best model for house prices prediction." img={image24} caption="" color="#eeeaf6"/>;
 const container25 = <Container title="Chicago Traffic Crash Dataset Modelling"  desc="We construct a dimensional database for the dataset in PostgreSQL. Then, we leverage SQL queries and Spark SQL to extract, transform and analyse information regarding predetermined questions." img={image25} caption="" color="#eeeaf6"/>;
-var content2 = [container21,container22,container23,container24,container25];
+var content2 = [container26,container21,container22,container23,container24,container25];
 
 const container41 = <Container title="Japanese"  desc="I love Japanese pop culture. Be it music, anime, game, idol or just food, the contents they produce are eccentric and awe-inspiring. No wonder I even achieved JLPT N1 proficiency in Japanese." img={image41} caption="In Hakone where we saw Mount Fuji" color="#eeeaf6"/>;
 const container42 = <Container title="Hiking"  desc="Hiking is my favourite outdoor activity. Surrounded by nature for half a day, it is both mind-clearing and fulling. National parks are wonders." img={image42} caption="Great Falls Park near D.C." color="#eeeaf6"/>;
@@ -267,13 +269,13 @@ class Skills extends React.Component{
           <Skillitem name="JavaScript" star="5"></Skillitem>
           <Skillitem name="HTML" star="5"></Skillitem>
           <Skillitem name="CSS" star="5"></Skillitem>
-          <Skillitem name="React" star="4"></Skillitem>
+          <Skillitem name="React (Next.js)" star="4"></Skillitem>
+          <Skillitem name="Node.js" star="4"></Skillitem>
+          <Skillitem name="Express" star="4"></Skillitem>
           <Skillitem name="Flask" star="4"></Skillitem>
-          <Skillitem name="Bootstrap" star="3"></Skillitem>
-          <Skillitem name="MVC pattern" star="4"></Skillitem>
+          <Skillitem name="MVC Pattern" star="4"></Skillitem>
           <Skillitem name="RESTful API" star="4"></Skillitem>
           <Skillitem name="Unix shell" star="3"></Skillitem>
-          <Skillitem name="Object Orientated Programming" star="5"></Skillitem>
           <Skillitem name="Git" star="4"></Skillitem>
           <Skillitem name="AWS" star="2"></Skillitem>
         </ul>
@@ -284,7 +286,7 @@ class Skills extends React.Component{
         <Skillitem name="R" star="5"></Skillitem>
         <Skillitem name="MySQL" star="5"></Skillitem>
         <Skillitem name="PostgreSQL" star="5"></Skillitem>
-        <Skillitem name="Database" star="4"></Skillitem>
+        <Skillitem name="MongoDB" star="4"></Skillitem>
         <Skillitem name="Statistics" star="4"></Skillitem>
         <Skillitem name="Excel" star="4"></Skillitem>
         <Skillitem name="Tableau" star="3"></Skillitem>
