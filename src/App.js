@@ -20,7 +20,7 @@ class Main extends React.Component{
       <div id="intro">
       
           <div>Hi, I'm Simon!</div>
-          I am a developer and data scientist. I have been passionate about exploring new things. Currently, I am living in <a href="https://www.google.com/search?q=vienna+virginia" target="_blank" rel="noopener noreferrer">Vienna, Virginia</a>.
+          I am a developer and data scientist. I have been passionate about exploring new things. Currently, I am living in Arlington, Virginia.
           </div>
 
       
@@ -93,7 +93,7 @@ const container13 = <Container title="Hong Kong" desc="I pursued my Bachelor's d
 const container14 = <Container title="Washington D.C." desc="In 2019, I came to Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University. I expect to graduate by the end of 2020." img={image14} color="#f6eeea"/>;
 var content1 =[container11,container12,container13,container14]
 
-const container26 = <Container title="Online Grocery Store"  desc="I construct the frontend with Next.js. For the backend, I adopt Node.js, Express and MongoDB. The website has essential functionality of search, filter, log in/out, comment, view history, cart and a portal for site statistics as well as listing and stock management." img={image26} caption="" color="#eeeaf6"/>;
+const container26 = <Container title="Online Grocery Store"  desc="I build the Single-Page Application and API server from ground up, with self-sufficient log in/out, search, filter, comment, history and cart functions by leveraging Node.js, Express, MongoDB and Next.js." img={image26} caption="" color="#eeeaf6"/>;
 const container21 = <Container title="Personal Website"  desc="This website is built using React and complementary HTML, CSS and Javascript. I find the logic handling and component reusing functions of React extremely helpful." img={image21} caption="" color="#eeeaf6"/>;
 const container22 = <Container title="Full-Stack Capstone"  desc="I design and build all API endpoints and database structures for simulation of stock trading. I utilize Flask, PostgreSQL, authorization, deployment and testing knowledge to implement role-based actions." img={image22} caption="" color="#eeeaf6"/>;
 const container23 = <Container title="Web API for Booking"  desc="Compose the normalised data models and model interactions with automated database migrations. Implement controllers that handle data and render view. " img={image23} caption="" color="#eeeaf6"/>;
