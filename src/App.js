@@ -82,6 +82,7 @@ const image24 = require("./img24.jpeg");
 const image25 = require("./img25.jpeg");
 const image26 = require("./img26.jpeg");
 const image27 = require("./img27.png");
+const image28 = require("./img28.jpeg");
 const image41 = require("./img41.jpeg");
 const image42 = require("./img42.jpeg");
 const image43 = require("./img43.jpeg");
@@ -94,14 +95,15 @@ const container13 = <Container title="Hong Kong" desc="I pursued my Bachelor's d
 const container14 = <Container title="Washington D.C." desc="In 2019, I came to Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University. I expect to graduate by the end of 2020." img={image14} color="#f6eeea"/>;
 var content1 =[container11,container12,container13,container14]
 
-const container27 = <Container title="Upcoming..."  desc="The idea is a collection of categories such as learning, entertaining, cleaning, etc. and users could vote and share their experience with the tools in that category. I plan to implement TypeScript, Redis, Nginx and Ionic besides MERN stack." img={image27} caption="" color="#eeeaf6"/>;
+const container28 = <Container title="Geospatial Dashboard"  desc="A dashboard to visualize the geospatial data for Long Beach businesses. I utilize d3, leaflet and kepler for dynamic selection filters, polygon filters and aggregated statistics display." img={image28} caption="" color="#eeeaf6"/>;
+const container27 = <Container title="Upcoming..."  desc="The idea is a collection of categories such as learning, entertaining, cleaning, etc. and users could vote and share their experience with the tools in that category. TypeScript and Ionic will be employed besides MERN stack." img={image27} caption="" color="#eeeaf6"/>;
 const container26 = <Container title="Online Grocery Store"  desc="I build the Single-Page Application and API server from ground up, with self-sufficient log in/out, search, filter, comment, history and cart functions by leveraging Node.js, Express, MongoDB and Next.js." img={image26} caption="" color="#eeeaf6"/>;
 const container21 = <Container title="Personal Website"  desc="This website is built using React and complementary HTML, CSS and Javascript. I find the logic handling and component reusing functions of React extremely helpful." img={image21} caption="" color="#eeeaf6"/>;
 const container22 = <Container title="Full-Stack Capstone"  desc="I design and build all API endpoints and database structures for simulation of stock trading. I utilize Flask, PostgreSQL, authorization, deployment and testing knowledge to implement role-based actions." img={image22} caption="" color="#eeeaf6"/>;
 const container23 = <Container title="Web API for Booking"  desc="Compose the normalised data models and model interactions with automated database migrations. Implement controllers that handle data and render view. " img={image23} caption="" color="#eeeaf6"/>;
 const container24 = <Container title="Kaggle House Prices Dataset Analysis"  desc="Pre-process data with scaling, transformation, binning, categorical encoding, imputation and feature selection. Carefully tune the parameters of GBM and XGBoost. Determine the best model for house prices prediction." img={image24} caption="" color="#eeeaf6"/>;
 const container25 = <Container title="Chicago Traffic Crash Dataset Modelling"  desc="We construct a dimensional database for the dataset in PostgreSQL. Then, we leverage SQL queries and Spark SQL to extract, transform and analyse information regarding predetermined questions." img={image25} caption="" color="#eeeaf6"/>;
-var content2 = [container27,container26,container21,container22,container23,container24,container25];
+var content2 = [container28,container27,container26,container21,container22,container23,container24,container25];
 
 const container41 = <Container title="Japanese"  desc="I love Japanese pop culture. Be it music, anime, game, idol or just food, the contents they produce are eccentric and awe-inspiring. No wonder I even achieved JLPT N1 proficiency in Japanese." img={image41} caption="In Hakone where we saw Mount Fuji" color="#eeeaf6"/>;
 const container42 = <Container title="Hiking"  desc="Hiking is my favourite outdoor activity. Surrounded by nature for half a day, it is both mind-clearing and fulfilling. National parks are wonders." img={image42} caption="Great Falls Park near D.C." color="#eeeaf6"/>;
@@ -273,11 +275,11 @@ class Skills extends React.Component{
           <Skillitem name="JavaScript" star="5"></Skillitem>
           <Skillitem name="HTML" star="5"></Skillitem>
           <Skillitem name="CSS" star="5"></Skillitem>
-          <Skillitem name="React (Next.js)" star="5"></Skillitem>
+          <Skillitem name="React" star="5"></Skillitem>
           <Skillitem name="Node.js" star="4"></Skillitem>
           <Skillitem name="Express" star="4"></Skillitem>
           <Skillitem name="Flask" star="3"></Skillitem>
-          <Skillitem name="TypeScript" star="3"></Skillitem>
+          <Skillitem name="TypeScript" star="4"></Skillitem>
           <Skillitem name="RESTful API" star="4"></Skillitem>
           <Skillitem name="GraphQL" star="3"></Skillitem>
           <Skillitem name="Git" star="4"></Skillitem>
@@ -288,9 +290,9 @@ class Skills extends React.Component{
         <ul>
         <Skillitem name="Python" star="5"></Skillitem>
         <Skillitem name="R" star="5"></Skillitem>
-        <Skillitem name="MySQL" star="5"></Skillitem>
         <Skillitem name="PostgreSQL" star="5"></Skillitem>
         <Skillitem name="MongoDB" star="4"></Skillitem>
+        <Skillitem name="D3" star="4"></Skillitem>
         <Skillitem name="Statistics" star="4"></Skillitem>
         <Skillitem name="Excel" star="4"></Skillitem>
         <Skillitem name="Tableau" star="3"></Skillitem>
