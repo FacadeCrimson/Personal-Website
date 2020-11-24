@@ -86,53 +86,8 @@ div h1{
   background:rgba(255, 255, 255, 0.6);
 }
 
-.contact{
-  top: -2%;
-  left: 1%;
-  position: absolute;
-  
-}
-
-#main div h3:hover + .contactmethod{
-  opacity:1;
-}
-
-div h3{
-  font-family: 'Cormorant Garamond', serif;
-  font-size:40px;
-  font-weight:400;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 5px;
-  border-bottom: 1px dotted black;
-  color:#303030;
-  background:rgba(255, 255, 255, 0.6);
-}
-
-.contactmethod{
-    top:60%;
-    left: 50%;
-    transform: translateX(-50%);
-    color:#303030;
-    background:rgba(255, 255, 255, 0.8);
-    font-size:15px;
-    font-family: 'Noto Sans JP', sans-serif;
-    text-align: center;
-    padding: 5px;
-    border-radius: 6px;
-    position: absolute;
-    opacity:0;
-    transition: opacity 1s;
-    list-style: none;
-}
-
-.contactmethod li{
-  padding-top: 5px;
-  padding-bottom:5px;
-}
-
-.contactmethod:hover{
-  opacity:1;
+#email{
+  display:none;
 }
 
 #menubutton{

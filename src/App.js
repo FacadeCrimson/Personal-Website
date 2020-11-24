@@ -8,6 +8,17 @@ class Navbar extends React.Component{
 }
 
 class Main extends React.Component{
+    handleClick(){
+      var copyText = document.querySelector("#email");
+
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); 
+    
+      document.execCommand("copy");
+    
+      alert("Email address copied!");
+    }
+
   render(){
     const image1 = require("./main-img1.jpeg")
     const image2 = require("./img2.jpg")
@@ -21,23 +32,10 @@ class Main extends React.Component{
       
           <div>Hi, I'm Simon!</div>
           I am a developer and data scientist. I have been passionate about exploring new things. Currently, I am living in Arlington, Virginia.
+          <div>Reach me by <a href="#" onClick={()=>{this.handleClick()}}>email</a>.
+          And here is my <a href="https://github.com/FacadeCrimson" target="_blank" rel="noopener noreferrer">git repo</a>. </div>
           </div>
-
-      
-      <Contact />
-    </div>
-  }
-}
-
-class Contact extends React.Component{
-  render(){
-    return <div className ="contact">
-      <h3>Contact me</h3>
-      <ul className="contactmethod">
-        <li>Email: simontan@gwu.edu</li>
-        <li>Phone: 571-224-8268</li>
-        <li>Github: <a href="https://github.com/FacadeCrimson">github.com/FacadeCrimson</a></li>
-      </ul>
+      <input id="email" value="connect@simontan.com" readOnly></input>
     </div>
   }
 }
@@ -89,36 +87,36 @@ const image43 = require("./img43.jpeg");
 const image44 = require("./img44.jpg");
 
 // texts
-const container11 = <Container title="Early years" desc="I was born in a middle province in China. I spent some of my childhood with my grandparents. I still remember the good local cuisines and happy times playing with my cousins." img={image11} color="#f6eeea"/>;
-const container12 = <Container title="Beijing" desc="I went to high school in Beijing. My peers there are more outgoing and excel at various areas. I learnt a lot from them." img={image12} color="#f6eeea"/>;
-const container13 = <Container title="Hong Kong" desc="I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology. The scenery there is amazing and those years really broaden my horizons." img={image13} color="#f6eeea"/>;
-const container14 = <Container title="Washington D.C." desc="In 2019, I came to Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University. I expect to graduate by the end of 2020." img={image14} color="#f6eeea"/>;
+const container11 = <Container key="11" title="Early years" desc="I was born in a middle province in China. I spent some of my childhood with my grandparents. I still remember the good local cuisines and happy times playing with my cousins." img={image11} color="#f6eeea"/>;
+const container12 = <Container key="12" title="Beijing" desc="I went to high school in Beijing. My peers there are more outgoing and excel at various areas. I learnt a lot from them." img={image12} color="#f6eeea"/>;
+const container13 = <Container key="13" title="Hong Kong" desc="I pursued my Bachelor's degree of Economics and Finance in Hong Kong University of Science and Technology. The scenery there is amazing and those years really broaden my horizons." img={image13} color="#f6eeea"/>;
+const container14 = <Container key="14" title="Washington D.C." desc="In 2019, I came to Washington, D.C. to carry out my Master degree in Business Analytics at George Washington University. I expect to graduate by the end of 2020." img={image14} color="#f6eeea"/>;
 var content1 =[container11,container12,container13,container14]
 
-const container28 = <Container title="Geospatial Dashboard"  desc="A dashboard to visualize the geospatial data for Long Beach businesses. I utilize d3, leaflet and kepler for dynamic selection filters, polygon filters and aggregated statistics display." img={image28} caption="" color="#eeeaf6"/>;
-const container27 = <Container title="Upcoming..."  desc="The idea is a collection of categories such as learning, entertaining, cleaning, etc. and users could vote and share their experience with the tools in that category. TypeScript and Ionic will be employed besides MERN stack." img={image27} caption="" color="#eeeaf6"/>;
-const container26 = <Container title="Online Grocery Store"  desc="I build the Single-Page Application and API server from ground up, with self-sufficient log in/out, search, filter, comment, history and cart functions by leveraging Node.js, Express, MongoDB and Next.js." img={image26} caption="" color="#eeeaf6"/>;
-const container21 = <Container title="Personal Website"  desc="This website is built using React and complementary HTML, CSS and Javascript. I find the logic handling and component reusing functions of React extremely helpful." img={image21} caption="" color="#eeeaf6"/>;
-const container22 = <Container title="Full-Stack Capstone"  desc="I design and build all API endpoints and database structures for simulation of stock trading. I utilize Flask, PostgreSQL, authorization, deployment and testing knowledge to implement role-based actions." img={image22} caption="" color="#eeeaf6"/>;
-const container23 = <Container title="Web API for Booking"  desc="Compose the normalised data models and model interactions with automated database migrations. Implement controllers that handle data and render view. " img={image23} caption="" color="#eeeaf6"/>;
-const container24 = <Container title="Kaggle House Prices Dataset Analysis"  desc="Pre-process data with scaling, transformation, binning, categorical encoding, imputation and feature selection. Carefully tune the parameters of GBM and XGBoost. Determine the best model for house prices prediction." img={image24} caption="" color="#eeeaf6"/>;
-const container25 = <Container title="Chicago Traffic Crash Dataset Modelling"  desc="We construct a dimensional database for the dataset in PostgreSQL. Then, we leverage SQL queries and Spark SQL to extract, transform and analyse information regarding predetermined questions." img={image25} caption="" color="#eeeaf6"/>;
+const container28 = <Container key="28" title="Geospatial Dashboard"  desc="A dashboard to visualize the geospatial data for Long Beach businesses. I utilize d3, leaflet and kepler for dynamic selection filters, polygon filters and aggregated statistics display." img={image28} caption="" color="#eeeaf6"/>;
+const container27 = <Container key="27" title="Upcoming..."  desc="The idea is a collection of categories such as learning, entertaining, cleaning, etc. and users could vote and share their experience with the tools in that category. TypeScript and Ionic will be employed besides MERN stack." img={image27} caption="" color="#eeeaf6"/>;
+const container26 = <Container key="26" title="Online Grocery Store"  desc="I build the Single-Page Application and API server from ground up, with self-sufficient log in/out, search, filter, comment, history and cart functions by leveraging Node.js, Express, MongoDB and Next.js." img={image26} caption="" color="#eeeaf6"/>;
+const container21 = <Container key="21" title="Personal Website"  desc="This website is built using React and complementary HTML, CSS and Javascript. I find the logic handling and component reusing functions of React extremely helpful." img={image21} caption="" color="#eeeaf6"/>;
+const container22 = <Container key="22" title="Full-Stack Capstone"  desc="I design and build all API endpoints and database structures for simulation of stock trading. I utilize Flask, PostgreSQL, authorization, deployment and testing knowledge to implement role-based actions." img={image22} caption="" color="#eeeaf6"/>;
+const container23 = <Container key="23" title="Web API for Booking"  desc="Compose the normalised data models and model interactions with automated database migrations. Implement controllers that handle data and render view. " img={image23} caption="" color="#eeeaf6"/>;
+const container24 = <Container key="24" title="Kaggle House Prices Dataset Analysis"  desc="Pre-process data with scaling, transformation, binning, categorical encoding, imputation and feature selection. Carefully tune the parameters of GBM and XGBoost. Determine the best model for house prices prediction." img={image24} caption="" color="#eeeaf6"/>;
+const container25 = <Container key="25" title="Chicago Traffic Crash Dataset Modelling"  desc="We construct a dimensional database for the dataset in PostgreSQL. Then, we leverage SQL queries and Spark SQL to extract, transform and analyse information regarding predetermined questions." img={image25} caption="" color="#eeeaf6"/>;
 var content2 = [container28,container27,container26,container21,container22,container23,container24,container25];
 
-const container41 = <Container title="Japanese"  desc="I love Japanese pop culture. Be it music, anime, game, idol or just food, the contents they produce are eccentric and awe-inspiring. No wonder I even achieved JLPT N1 proficiency in Japanese." img={image41} caption="In Hakone where we saw Mount Fuji" color="#eeeaf6"/>;
-const container42 = <Container title="Hiking"  desc="Hiking is my favourite outdoor activity. Surrounded by nature for half a day, it is both mind-clearing and fulfilling. National parks are wonders." img={image42} caption="Great Falls Park near D.C." color="#eeeaf6"/>;
-const container43 = <Container title="Movies" desc="Watching movies is something I enjoy. I would usually check their rating before commiting my time and I am really tired of blockbusters, as they lack everything except graphics." img={image43} caption="Check A.V. Club for their best of the decade" color="#eeeaf6" />;
-const container44 = <Container title="MTG" desc="I love playing Magic the Gathering. Every week I would play some drafts or cubes ever since university. I still think there are tons of tricks to master." img={image44} caption="Baneslayer Angel intrigues me most." color="#eeeaf6" />;
+const container41 = <Container key="41" title="Japanese"  desc="I love Japanese pop culture. Be it music, anime, game, idol or just food, the contents they produce are eccentric and awe-inspiring. No wonder I even achieved JLPT N1 proficiency in Japanese." img={image41} caption="In Hakone where we saw Mount Fuji" color="#eeeaf6"/>;
+const container42 = <Container key="42" title="Hiking"  desc="Hiking is my favourite outdoor activity. Surrounded by nature for half a day, it is both mind-clearing and fulfilling. National parks are wonders." img={image42} caption="Great Falls Park near D.C." color="#eeeaf6"/>;
+const container43 = <Container key="43" title="Movies" desc="Watching movies is something I enjoy. I would usually check their rating before commiting my time and I am really tired of blockbusters, as they lack everything except graphics." img={image43} caption="Check A.V. Club for their best of the decade" color="#eeeaf6" />;
+const container44 = <Container key="44" title="MTG" desc="I love playing Magic the Gathering. Every week I would play some drafts or cubes ever since university. I still think there are tons of tricks to master." img={image44} caption="Baneslayer Angel intrigues me most." color="#eeeaf6" />;
 var content4 =[container41,container42,container43,container44]
 
-const container51 = <Container desc="Success is liking yourself, liking what you do, and liking how you do it." author="Maya Angelou" color="#f6eeea" />
-const container52 = <Container desc="Winning does not tempt that man. This is how he grows: by being defeated, decisively, by constantly greater beings." author="Rainer Maria Rilke" color="#f6eeea" />
-const container53 = <Container desc="Every time I go jogging, I would set the end at a restaurant or supermarket that I would visit. Associating jogging with a goal reduces stress and increases willingness." author="me" color="#f6eeea" />
-const container54 = <Container desc="Imitation of idols is a powerful process of shaping actions. I call this 'style learning' and people should use it consciously." author="me" color="#f6eeea" />
-const container55 = <Container desc="We need to be extremely careful in choosing environments. When faced with such decisions, I would often examine friends who I am similar to and people I admire to imagine what will their choices be." author="me" color="#f6eeea" />
-const container56 = <Container desc="God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference." author="Reinhold Niebuhr" color="#f6eeea" />
-const container57 = <Container desc="Far more money has been lost by investors preparing for corrections, or trying to anticipate corrections, than has been lost in corrections themselves." author="Peter Lynch" color="#f6eeea" />
-const container58 = <Container desc="It’s as easy to do something big as it is to do something small, so reach for a fantasy worthy of your pursuit, with rewards commensurate to your effort." author="Stephen A. Schwarzman" color="#f6eeea" />
+const container51 = <Container key="51" desc="Success is liking yourself, liking what you do, and liking how you do it." author="Maya Angelou" color="#f6eeea" />
+const container52 = <Container key="52" desc="Winning does not tempt that man. This is how he grows: by being defeated, decisively, by constantly greater beings." author="Rainer Maria Rilke" color="#f6eeea" />
+const container53 = <Container key="53" desc="Every time I go jogging, I would set the end at a restaurant or supermarket that I would visit. Associating jogging with a goal reduces stress and increases willingness." author="me" color="#f6eeea" />
+const container54 = <Container key="54" desc="Imitation of idols is a powerful process of shaping actions. I call this 'style learning' and people should use it consciously." author="me" color="#f6eeea" />
+const container55 = <Container key="55" desc="We need to be extremely careful in choosing environments. When faced with such decisions, I would often examine friends who I am similar to and people I admire to imagine what will their choices be." author="me" color="#f6eeea" />
+const container56 = <Container key="56" desc="God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference." author="Reinhold Niebuhr" color="#f6eeea" />
+const container57 = <Container key="57" desc="Far more money has been lost by investors preparing for corrections, or trying to anticipate corrections, than has been lost in corrections themselves." author="Peter Lynch" color="#f6eeea" />
+const container58 = <Container key="58" desc="It’s as easy to do something big as it is to do something small, so reach for a fantasy worthy of your pursuit, with rewards commensurate to your effort." author="Stephen A. Schwarzman" color="#f6eeea" />
 
 var content5 = [container51,container52,container53,container54,container55,container56,container57,container58]
 
@@ -293,13 +291,13 @@ class Skills extends React.Component{
         <Skillitem name="PostgreSQL" star="5"></Skillitem>
         <Skillitem name="MongoDB" star="4"></Skillitem>
         <Skillitem name="D3" star="4"></Skillitem>
+        <Skillitem name="Spark / Kafka" star="4"></Skillitem>
         <Skillitem name="Statistics" star="4"></Skillitem>
         <Skillitem name="Excel" star="4"></Skillitem>
         <Skillitem name="Tableau" star="3"></Skillitem>
         <Skillitem name="Machine Learning" star="4"></Skillitem>
         <Skillitem name="Deep Learning" star="3"></Skillitem>
         <Skillitem name="Time Series" star="4"></Skillitem>
-        <Skillitem name="Digital Analytics" star="3"></Skillitem>
         </ul>
       </div>
       </div>
