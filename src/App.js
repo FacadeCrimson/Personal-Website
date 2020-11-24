@@ -9,14 +9,10 @@ class Navbar extends React.Component{
 
 class Main extends React.Component{
     handleClick(){
-      var copyText = document.querySelector("#email");
-
-      copyText.select();
-      copyText.setSelectionRange(0, 99999); 
-    
-      document.execCommand("copy");
-    
-      alert("Email address copied!");
+      const textToCopy = 'connect@simontan.com'
+      navigator.clipboard.writeText(textToCopy)
+      .then(() => { alert("Email address copied!"); })
+      .catch((error) => { alert(`Copy failed! ${error}`) })
     }
 
   render(){
@@ -35,7 +31,6 @@ class Main extends React.Component{
           <div>Reach me by <a href="#" onClick={()=>{this.handleClick()}}>email</a>.
           And here is my <a href="https://github.com/FacadeCrimson" target="_blank" rel="noopener noreferrer">git repo</a>. </div>
           </div>
-      <input id="email" value="connect@simontan.com" readOnly></input>
     </div>
   }
 }
