@@ -463,6 +463,12 @@ div h1{
   font-size:25px;
 }
 
+#music{
+  float:right;
+  position:relative;
+  max-width:660px;
+}
+
 #response{
   float:right;
   margin:30px;
@@ -535,7 +541,7 @@ input[type="submit"]:hover{
 
 #showform{
   right:-10px;
-  top: 20px;
+  top: 25px;
   height:60px;
   width:60px;
   z-index:7;
@@ -636,6 +642,12 @@ input[type="submit"]:hover{
   .foot{
     padding-top:200px;
   }
+
+  #music{
+    z-index:6;
+    display:none;
+  }
+
   #response{
     z-index:6;
     display:none;
@@ -665,6 +677,11 @@ input[type="submit"]:hover{
 
 #rightarrow{
   display:none;
+}
+
+#music{
+  max-width:100%;
+  margin:0;
 }
 
 #response{

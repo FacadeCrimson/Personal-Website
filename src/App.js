@@ -274,7 +274,7 @@ class Skills extends React.Component{
           <Skillitem name="Flask" star="3"></Skillitem>
           <Skillitem name="TypeScript" star="4"></Skillitem>
           <Skillitem name="RESTful API" star="4"></Skillitem>
-          <Skillitem name="GraphQL" star="3"></Skillitem>
+          <Skillitem name="Java" star="4"></Skillitem>
           <Skillitem name="Git" star="4"></Skillitem>
           <Skillitem name="AWS" star="3"></Skillitem>
         </ul>
@@ -392,21 +392,22 @@ class First extends React.Component{
 
 class Response extends React.Component{
   render(){
-    return <div id="response">
-      <form className="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSddmWyx1_aJvYSIxH7sIcquntxErMgQGCygpDT-k152qnHsWA/formResponse" method="post" target="hidden_iframe">
-        <label>Title</label>
-          <input name="entry.2093844086" type="text" pattern=".{3,}"  required title="3 characters minimum"/>
+    return <iframe id="music" title="music" allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="450" style={{width:"100%",overflow:"hidden",background:"transparent"}} sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/hk/playlist/prep/pl.u-pMylgaRFxdBLgE?l=en"></iframe>
+    // <div id="response">
+    //   <form className="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSddmWyx1_aJvYSIxH7sIcquntxErMgQGCygpDT-k152qnHsWA/formResponse" method="post" target="hidden_iframe">
+    //     <label>Title</label>
+    //       <input name="entry.2093844086" type="text" pattern=".{3,}"  required title="3 characters minimum"/>
 
-          <label>Feedback</label>
-          <textarea name="entry.315161779" cols="17" rows="5" required ></textarea>
+    //       <label>Feedback</label>
+    //       <textarea name="entry.315161779" cols="17" rows="5" required ></textarea>
 
-          <label>Email (Optional)</label>
-          <input name="entry.1086420941" type="email" />
+    //       <label>Email (Optional)</label>
+    //       <input name="entry.1086420941" type="email" />
 
-          <input type="submit" value="Send" />
+    //       <input type="submit" value="Send" />
 
-      </form>
-      </div>
+    //   </form>
+    //   </div>
 }
 }
 
@@ -466,7 +467,7 @@ class MainBottom extends React.Component{
   }
 
   showForm(){
-    var form =document.getElementById("response");
+    var form =document.getElementById("music");
     form.style.display="block";
     var button = document.getElementById("showform")
     button.innerHTML = "&nbsp;&times"
@@ -475,10 +476,10 @@ class MainBottom extends React.Component{
 
   closeForm = (e)=>{
     e.stopPropagation();
-    var form =document.getElementById("response");
+    var form =document.getElementById("music");
     form.style.display="none";
     var button = document.getElementById("showform")
-    button.innerHTML = "&nbsp;✎"
+    button.innerHTML = "&nbsp;&#x266D;"
     button.removeEventListener('click', this.closeForm,false)
   }
 
@@ -488,7 +489,7 @@ class MainBottom extends React.Component{
     }
     return <div id = "mainbottom">
       <div id="instruction">⤺ Hover on the tabs to open it!</div>
-      <div id="showform" onClick={()=>this.showForm()}>&nbsp;✎</div>
+      <div id="showform" onClick={()=>this.showForm()}>&nbsp;&#x266D;</div>
       <Response></Response>
         <Main1 onMouseEnter={()=>this.handleMouseOver(1)} onMouseLeave={()=>this.handleMouseLeave(1)} onClick={(i)=>this.resetStyle(i)} style1={this.state.style1} styleText={this.state.current===1 ? this.state.styleText : {}}/>
         <Main2 onMouseEnter={()=>this.handleMouseOver(2)} onMouseLeave={()=>this.handleMouseLeave(2)} onClick={(i)=>this.resetStyle(i)} style2={this.state.style2} styleText={this.state.current===2 ? this.state.styleText : {}}/>
