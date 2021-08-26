@@ -8,13 +8,6 @@ class Navbar extends React.Component{
 }
 
 class Main extends React.Component{
-    handleClick(){
-      const textToCopy = 'connect@simontan.com'
-      navigator.clipboard.writeText(textToCopy)
-      .then(() => { alert("Email address copied!"); })
-      .catch((error) => { alert(`Copy failed! ${error}`) })
-    }
-
   render(){
     const image1 = require("./main-img1.jpeg")
     const image2 = require("./img2.jpg")
@@ -22,14 +15,14 @@ class Main extends React.Component{
     return <div id= "main">
       <img src={image1} alt="El Captain" id="back"></img>
       <h1>Simon Tan</h1>
-      <div id="menubutton" onClick={()=>this.props.onClick()}>&#9776;</div>
-      <div id="myimage"><img src={image2} alt="me"></img></div>
+      {/* <div id="menubutton" onClick={()=>this.props.onClick()}>&#9776;</div> */}
+      {/* <div id="myimage"><img src={image2} alt="me"></img></div> */}
       <div id="intro">
       
           <div>Hi, I'm Simon!</div>
-          I am a developer and data scientist. I have been passionate about exploring new things. Currently, I am living in Arlington, Virginia.
-          <div>Reach me by <a href="#" onClick={()=>{this.handleClick()}}>email</a>.
-          And here is my <a href="https://github.com/FacadeCrimson" target="_blank" rel="noopener noreferrer">git repo</a>. </div>
+          <p>I am a developer passionate about exploring new things, always on the move.</p>
+           <p>Currently, I am in Orlando, Florida.</p>
+           <p style={{"opacity":0,"text-align":"right","transition":"opacity 1s"}} onMouseOver={(e)=>{e.target.style.opacity=1}} onMouseLeave={(e)=>{e.target.style.opacity=0}}>Nothing to see here. Really.</p>
           </div>
     </div>
   }
@@ -385,7 +378,7 @@ class First extends React.Component{
     return <div className = "first">
       <Navbar />
       <Main onClick={()=>this.openSidebar()}/>
-      <Sidebar onClick={(i)=>{window.scroll({top: 1200,left: 0,behavior: 'smooth'} );this.props.onClick(i)}} style={this.menuDisplay} close={()=>this.closeSidebar()}/>
+      {/* <Sidebar onClick={(i)=>{window.scroll({top: 1200,left: 0,behavior: 'smooth'} );this.props.onClick(i)}} style={this.menuDisplay} close={()=>this.closeSidebar()}/> */}
     </div>
   }
 }
@@ -515,7 +508,7 @@ class Foot extends React.Component{
     return <div className = "foot">
       <div className="ending">
         <hr></hr>
-        <div className="endingtext">© 2020 Simon Tan</div>
+        <div className="endingtext">© 2020-2022 Simon Tan</div>
       </div>
     </div>
     }
@@ -542,7 +535,7 @@ class App extends React.Component{
   return (
     <div>
     <First onClick={(i)=>this.current(i)}/>
-    <Second current={this.state.current} reset={()=>this.reset()} set={(i)=>this.current(i)} />
+    {/* <Second current={this.state.current} reset={()=>this.reset()} set={(i)=>this.current(i)} /> */}
     <Foot />
     </div>
   )
